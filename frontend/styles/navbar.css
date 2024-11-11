@@ -3,14 +3,17 @@
   padding: 0;
 }
 
+/* From here is the Navbar styles */
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: calc(1.5em + 7vh);
-  background-color: white;
+  background-color: #fff;
   color: black;
+  border-bottom: 2px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +24,7 @@ header {
   width: calc(1.5em + 4vh);
   height: calc(1.5em + 4vh);
   margin-left: 2em;
+  margin-right: 2em;
 }
 
 nav {
@@ -45,7 +49,7 @@ nav {
 .nav-list li a {
   text-decoration: none;
   color: black;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .nav-list li a:hover {
@@ -55,6 +59,9 @@ nav {
 .mobile-menu {
   display: none;
   cursor: pointer;
+  border: 1px solid black;
+  border-radius: 50em;
+  padding: 5px;
 }
 
 .mobile-menu div {
@@ -65,7 +72,7 @@ nav {
   transition: 0.3s;
 }
 
-@media screen and (max-width: 1244px) {
+@media screen and (max-width: 1380px) {
   body {
     overflow-x: hidden;
   }
@@ -93,6 +100,8 @@ nav {
 .nav-list.active {
   transform: translateX(0);
 }
+
+/* Here ends the Navbar styles */
 
 main {
   margin-top: 85px;
