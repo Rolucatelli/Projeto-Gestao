@@ -1,4 +1,4 @@
-package com.example.bluevelvetmusicstore.model;
+package com.example.bluevelvetmusicstore.model.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

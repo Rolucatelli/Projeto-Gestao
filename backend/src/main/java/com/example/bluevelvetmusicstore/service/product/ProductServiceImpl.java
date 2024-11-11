@@ -1,16 +1,28 @@
 package com.example.bluevelvetmusicstore.service.product;
 
-import com.example.bluevelvetmusicstore.dao.product.ProductDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.bluevelvetmusicstore.mappers.ProductMapper;
+import com.example.bluevelvetmusicstore.model.entities.Product;
+import com.example.bluevelvetmusicstore.model.vo.ProductDashboardVO;
+import com.example.bluevelvetmusicstore.repository.ProductRepository;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    private final ProductDao productDao;
+  private final ProductRepository productRepository;
+  private final ProductMapper productMapper;
 
-    @Autowired
-    public ProductServiceImpl(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+  @Override
+  public Page<ProductDashboardVO> retrieveAllProducts(Pageable pageable) {
+    Page<Product> productsPage = productRepository.findAll(pageable);
+    List<ProductDashboardVO> list =
+        productsPage.stream().map(productMapper::entityToDashVO).toList();
+    return new PageImpl<>(list, pageable, productsPage.getTotalElements());
+  }
 }
