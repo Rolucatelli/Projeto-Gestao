@@ -31,6 +31,9 @@ public class Product {
     private Category category;
 
     @Column(nullable = false)
+    private String Brand;
+
+    @Column(nullable = false)
     private BigDecimal price;
 
     @Column(nullable = false)
