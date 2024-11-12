@@ -1,5 +1,6 @@
 package com.example.bluevelvetmusicstore.controller;
 
+import com.example.bluevelvetmusicstore.enums.ProductSortField;
 import com.example.bluevelvetmusicstore.model.vo.ProductDashboardVO;
 import com.example.bluevelvetmusicstore.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -22,9 +23,17 @@ public class ProductController {
 
   @GetMapping("/all")
   public ResponseEntity<Page<ProductDashboardVO>> listAllDashboard(
-      @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
-    Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, "id"));
-    Page<ProductDashboardVO> response = productService.retrieveAllProducts(pageable);
-    return ResponseEntity.ok(response);
+      @RequestParam(defaultValue = "0") int page,
+      @RequestParam(defaultValue = "10") int size,
+      @RequestParam(required = false) String search,
+      @RequestParam(defaultValue = "id") ProductSortField sortBy,
+      @RequestParam(defaultValue = "asc") String sortDirection) {
+    Sort.Direction direction = Sort.Direction.ASC;
+    if ("desc".equalsIgnoreCase(sortDirection)) {
+      direction = Sort.Direction.DESC;
+    }
+    Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortBy.getFieldName()));
+    Page<ProductDashboardVO> products = productService.retrieveAllProducts(search, pageable);
+    return ResponseEntity.ok(products);
   }
 }
