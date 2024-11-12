@@ -7,34 +7,34 @@ INSERT INTO categories (name, description) VALUES
 ('Music Equipment', 'Sound systems and equipment for music production and performances');
 
 -- Insert products into the 'products' table for the 'Music Albums' category
-INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at) VALUES
-('Greatest Hits', 'Compilation album', 'A collection of the best songs from various albums by the artist.', 1, 15.99, 10, true, 100, 10.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Live Concert Performance', 'Live album recording', 'A live performance of popular songs from the artist recorded on stage.', 1, 19.99, 15, true, 50, 12.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Acoustic Sessions', 'Unplugged album', 'An acoustic version of famous tracks performed in a studio setting.', 1, 12.99, 20, true, 75, 8.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at, brand) VALUES
+('Greatest Hits', 'Compilation album', 'A collection of the best songs from various albums by the artist.', 1, 15.99, 10, true, 100, 10.00, 12, 12, 0.5, 0.2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Universal Music'),
+('Live Concert Performance', 'Live album recording', 'A live performance of popular songs from the artist recorded on stage.', 1, 19.99, 15, true, 50, 12.00, 12, 12, 0.5, 0.25, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Sony Music'),
+('Acoustic Sessions', 'Unplugged album', 'An acoustic version of famous tracks performed in a studio setting.', 1, 12.99, 20, true, 75, 8.00, 12, 12, 0.5, 0.22, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Warner Music');
 
 -- Insert products into the 'products' table for the 'Instruments' category
-INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at) VALUES
-('Electric Guitar', 'String instrument', 'A solid body electric guitar perfect for rock music.', 2, 299.99, 5, true, 30, 150.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Acoustic Guitar', 'String instrument', 'A classic acoustic guitar for beginners and professionals alike.', 2, 199.99, 10, true, 50, 120.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Drum Set', 'Percussion instrument', 'A full drum set with cymbals, perfect for creating rhythm.', 2, 499.99, 5, true, 20, 350.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at, brand) VALUES
+('Electric Guitar', 'String instrument', 'A solid body electric guitar perfect for rock music.', 2, 299.99, 5, true, 30, 150.00, 100, 35, 7, 3.5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Fender'),
+('Acoustic Guitar', 'String instrument', 'A classic acoustic guitar for beginners and professionals alike.', 2, 199.99, 10, true, 50, 120.00, 105, 40, 12, 2.5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Yamaha'),
+('Drum Set', 'Percussion instrument', 'A full drum set with cymbals, perfect for creating rhythm.', 2, 499.99, 5, true, 20, 350.00, 120, 120, 80, 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Pearl');
 
 -- Insert products into the 'products' table for the 'Vinyl Records' category
-INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at) VALUES
-('Classic Rock Vinyl', 'Vinyl record', 'A vinyl record featuring classic rock songs.', 3, 25.99, 5, true, 40, 15.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Jazz Collection Vinyl', 'Vinyl record', 'A vinyl collection of the best jazz music performances.', 3, 29.99, 10, true, 35, 18.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Vinyl Collection: 80s Hits', 'Vinyl record', 'A collection of 80s hits on vinyl.', 3, 22.99, 8, true, 60, 13.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at, brand) VALUES
+('Classic Rock Vinyl', 'Vinyl record', 'A vinyl record featuring classic rock songs.', 3, 25.99, 5, true, 40, 15.00, 12, 12, 0.3, 0.25, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'EMI'),
+('Jazz Collection Vinyl', 'Vinyl record', 'A vinyl collection of the best jazz music performances.', 3, 29.99, 10, true, 35, 18.00, 12, 12, 0.3, 0.27, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Blue Note Records'),
+('Vinyl Collection: 80s Hits', 'Vinyl record', 'A collection of 80s hits on vinyl.', 3, 22.99, 8, true, 60, 13.00, 12, 12, 0.3, 0.24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Rhino Records');
 
 -- Insert products into the 'products' table for the 'Music Accessories' category
-INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at) VALUES
-('Noise Cancelling Headphones', 'Headphones', 'High-quality headphones with active noise cancellation for an immersive listening experience.', 4, 89.99, 15, true, 100, 50.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Portable Bluetooth Speaker', 'Speaker', 'A small portable speaker with Bluetooth connectivity for music on the go.', 4, 49.99, 10, true, 150, 30.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Guitar Picks (Set of 10)', 'Accessory', 'A set of 10 durable guitar picks for different playing styles.', 4, 9.99, 0, true, 200, 2.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at, brand) VALUES
+('Noise Cancelling Headphones', 'Headphones', 'High-quality headphones with active noise cancellation for an immersive listening experience.', 4, 89.99, 15, true, 100, 50.00, 20, 15, 8, 0.6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Bose'),
+('Portable Bluetooth Speaker', 'Speaker', 'A small portable speaker with Bluetooth connectivity for music on the go.', 4, 49.99, 10, true, 150, 30.00, 10, 10, 8, 0.8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'JBL'),
+('Guitar Picks (Set of 10)', 'Accessory', 'A set of 10 durable guitar picks for different playing styles.', 4, 9.99, 0, true, 200, 2.00, 5, 5, 0.2, 0.05, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Dunlop');
 
 -- Insert products into the 'products' table for the 'Music Equipment' category
-INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at) VALUES
-('DJ Mixer', 'Music Equipment', 'A professional DJ mixer for mixing tracks at live events.', 5, 299.99, 5, true, 25, 180.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Microphone', 'Music Equipment', 'A high-quality microphone for studio and live performances.', 5, 79.99, 10, true, 100, 40.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Sound Amplifier', 'Music Equipment', 'A powerful sound amplifier for high-volume performances and studio work.', 5, 199.99, 8, true, 40, 120.00, 1,1,1,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at, brand) VALUES
+('DJ Mixer', 'Music Equipment', 'A professional DJ mixer for mixing tracks at live events.', 5, 299.99, 5, true, 25, 180.00, 40, 30, 12, 4.5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Pioneer DJ'),
+('Microphone', 'Music Equipment', 'A high-quality microphone for studio and live performances.', 5, 79.99, 10, true, 100, 40.00, 25, 5, 5, 0.7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Shure'),
+('Sound Amplifier', 'Music Equipment', 'A powerful sound amplifier for high-volume performances and studio work.', 5, 199.99, 8, true, 40, 120.00, 30, 25, 15, 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'Behringer');
 
 -- Insert data into the 'images' table
 
