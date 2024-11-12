@@ -41,38 +41,38 @@ INSERT INTO products (name, short_description, full_description, category_id, pr
 INSERT INTO images (url, description, is_principal, product_id)
 VALUES
 -- Principal image for product with ID 1
-    ('https://example.com/product1_main.jpg', 'Main image for Product 1', true, 1),
+    ('https://upload.wikimedia.org/wikipedia/pt/f/fb/Beatles-one.jpg', 'Main image for Product 1', true, 1),
     ('https://example.com/product1_image1.jpg', 'Optional image 1 for Product 1', false, 1),
     ('https://example.com/product1_image2.jpg', 'Optional image 2 for Product 1', false, 1),
 -- Principal image for product with ID 2
-    ('https://example.com/product2_main.jpg', 'Main image for Product 2', true, 2),
+    ('https://i0.wp.com/www.wikimetal.com.br/wp-content/uploads/2018/09/Queen-Live-Aid.jpg?fit=696%2C406&ssl=1', 'Main image for Product 2', true, 2),
     ('https://example.com/product2_image1.jpg', 'Optional image for Product 2', false, 2),
 -- Principal image for product with ID 3
-    ('https://example.com/product3_main.jpg', 'Main image for Product 3', true, 3),
+    ('https://i.scdn.co/image/ab67616d0000b273f31a4cd4fcf00749d0d49422', 'Main image for Product 3', true, 3),
     ('https://example.com/product3_image1.jpg', 'Optional image 1 for Product 3', false, 3),
     ('https://example.com/product3_image2.jpg', 'Optional image 2 for Product 3', false, 3),
 -- Principal image for product with ID 4
-    ('https://example.com/product4_main.jpg', 'Main image for Product 4', true, 4),
+    ('https://aimm.edu/hubfs/rock-guitar-genre.jpg', 'Main image for Product 4', true, 4),
     ('https://example.com/product4_image1.jpg', 'Optional image for Product 4', false, 4),
 -- Principal image for product with ID 5
-    ('https://example.com/product5_main.jpg', 'Main image for Product 5', true, 5),
+    ('https://collingsguitars.com/wp-content/uploads/2023/12/hero1-aspect-ratio-2-1-1024x512.jpg', 'Main image for Product 5', true, 5),
 -- Principal image for product with ID 6
-    ('https://example.com/product6_main.jpg', 'Main image for Product 6', true, 6),
+    ('https://www.drumazon.com/cdn/shop/files/YAMAHA-STAGE-CUSTOM-8-PIECE-DRUM-KIT-MATTE-SURF-GREEN-DRUMAZON_02_1000x.jpg?v=1705429570', 'Main image for Product 6', true, 6),
 -- Principal image for product with ID 7
-    ('https://example.com/product7_main.jpg', 'Main image for Product 7', true, 7),
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTir4Ywy2Vgx_2DPsCI_Hd_R5WAb7n4nzSSQ&s', 'Main image for Product 7', true, 7),
 -- Principal image for product with ID 8
-    ('https://example.com/product8_main.jpg', 'Main image for Product 8', true, 8),
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFebxlHw-LsFkg2TQcs6PwAh12mMSWxxG2A&s', 'Main image for Product 8', true, 8),
 -- Principal image for product with ID 9
-    ('https://example.com/product9_main.jpg', 'Main image for Product 9', true, 9),
+    ('https://m.media-amazon.com/images/I/71cc++bXDiL._UF350,350_QL50_.jpg', 'Main image for Product 9', true, 9),
 -- Principal image for product with ID 10
-    ('https://example.com/product10_main.jpg', 'Main image for Product 10', true, 10),
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ZCsdfdLaKWWW8kJX2LQ2RpQbm7UiBqQ9kQ&s', 'Main image for Product 10', true, 10),
 -- Principal image for product with ID 11
-    ('https://example.com/product11_main.jpg', 'Main image for Product 11', true, 11),
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYhuVaea1fklHu8YrI4eaa9QD2wOiMDttrZA&s', 'Main image for Product 11', true, 11),
 -- Principal image for product with ID 12
-    ('https://example.com/product12_main.jpg', 'Main image for Product 12', true, 12),
+    ('https://www.groverallman.com.au/cdn/shop/products/unlimited-32.jpg?v=1406092070', 'Main image for Product 12', true, 12),
 -- Principal image for product with ID 13
-    ('https://example.com/product13_main.jpg', 'Main image for Product 13', true, 13),
+    ('https://plus.unsplash.com/premium_photo-1682391039938-e9782294c1a3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGolMjBtaXhlcnxlbnwwfHwwfHx8MA%3D%3D', 'Main image for Product 13', true, 13),
 -- Principal image for product with ID 14
-    ('https://example.com/product14_main.jpg', 'Main image for Product 14', true, 14),
+    ('https://upload.wikimedia.org/wikipedia/commons/0/0c/Shure_mikrofon_55S.jpg', 'Main image for Product 14', true, 14),
 -- Principal image for product with ID 15
-    ('https://example.com/product15_main.jpg', 'Main image for Product 15', true, 15);
+    ('https://m.media-amazon.com/images/I/71oYw-nKBZL._AC_UF1000,1000_QL80_.jpg', 'Main image for Product 15', true, 15);

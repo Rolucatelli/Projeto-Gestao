@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* HEADER */
+
+header .container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header .container .logo img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+header .container .labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header .container .labels h1 {
+    font-size: 32px;
+    margin: 0;
+    color: black;
+}
+
+header .container .labels p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* MAIN */
+
+main .container {
+    margin-bottom: 20px;
+}
+
+main .container .search {
+    width: auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+main .container .search input {
+    height: 25px;
+    width: auto;
+}
+
+main .container .search button {
+    height: 30px;
+    width: auto;
+}
+
+/* TABLE */
+
+main table {
+    margin: 5px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main table thead tr th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    background-color: #636262;
+    color: white;
+}
+
+main table tbody tr td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.product-image-cell {
+    width: 80px;
+    height: auto;
+}
+
+.product-image {
+    width: 100%; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+/* PAGINATION BOX */
+
+main .container #pagination-box {
+    margin: 10px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .container #pagination-box .pagination-btn {
+    width: 65px;
+    height: 40px;
+}
