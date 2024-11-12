@@ -26,7 +26,7 @@ public class ProductController {
       @RequestParam(defaultValue = "0") int page,
       @RequestParam(defaultValue = "10") int size,
       @RequestParam(required = false) String search,
-      @RequestParam(defaultValue = "id") ProductSortField sortBy,
+      @RequestParam(defaultValue = "name") ProductSortField sortBy,
       @RequestParam(defaultValue = "asc") String sortDirection) {
     Sort.Direction direction = Sort.Direction.ASC;
     if ("desc".equalsIgnoreCase(sortDirection)) {
