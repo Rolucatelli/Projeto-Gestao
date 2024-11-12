@@ -4,7 +4,7 @@ INSERT INTO categories (name, description) VALUES
 ('Instruments', 'Musical instruments for playing and composing music'),
 ('Vinyl Records', 'Vinyl discs for playing music, commonly used for vintage or collector items'),
 ('Music Accessories', 'Accessories for music players, such as headphones, speakers, etc.'),
-('Music Equipment', 'Sound systems and equipment for music production and performances');=
+('Music Equipment', 'Sound systems and equipment for music production and performances');
 
 -- Insert products into the 'products' table for the 'Music Albums' category
 INSERT INTO products (name, short_description, full_description, category_id, price, discount, is_active, stock_amount, cost, length, width, height, weight, created_at, updated_at) VALUES
