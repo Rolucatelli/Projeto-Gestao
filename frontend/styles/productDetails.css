@@ -30,7 +30,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: calc(1.5em + 7vh);
+  height: 10vh;
   color: var(--header-text-color);
   align-items: start;
   z-index: 1;
@@ -49,19 +49,32 @@ header {
 }
 
 header h1 {
-  font-size: 2em;
+  font-size: 2.5rem;
   display: inline;
-  margin-top: 0.5em;
+  margin-top: 0.2em;
 }
 
 header h2 {
-  font-size: 1.5em;
-  margin-top: 2em;
-  margin-left: 2em;
+  font-size: 2.25em;
+  margin: 2em;
   display: block;
 }
-/* 
+
 main {
   border: #000000 solid 1px;
   border-radius: 2em;
-} */
+  margin: 16vh 6em 0 6em;
+  padding: 1.5em;
+  height: 70vh;
+}
+
+#product-name {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+#product-description {
+  font-size: 1em;
+  margin-left: 1em;
+}
+
