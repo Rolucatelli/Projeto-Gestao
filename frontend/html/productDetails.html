@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
     <link rel="stylesheet" href="../styles/productDetails.css" />
+    <script defer src="../scripts/mobile-navbar.js"></script>
+    <script defer src="../scripts/carousel.js"></script>
   </head>
   <body>
     <div class="container">
@@ -14,10 +16,19 @@
           <h1>BlueVelvet Music Store</h1>
         </div>
         <h2>Product Details</h2>
-      </header>
+      </header> 
       <main>
         <h2 id="product-name">Product Name</h2>
         <p id="product-description">Product Description</p>
+        <div class="carousel">
+          <button class="prev">&lt;</button>
+          <div class="carousel-images">
+            <img src="../images/guitarra-rocker_a489.jpg" alt="Product 1" />
+            <img src="../images/teste01.png" alt="Product 2" />
+            <img src="../images/teste02.png" alt="Product 3" />
+          </div>
+          <button class="next">&gt;</button>
+        </div>
       </main>
     </div>
   </body>
