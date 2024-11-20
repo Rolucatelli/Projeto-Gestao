@@ -39,6 +39,9 @@ public class Product {
     private BigDecimal price;
 
     @Column(nullable = false)
+    private String Brand;
+
+    @Column(nullable = false)
     private Integer discount;
 
     @Column(nullable = false)
@@ -88,5 +91,9 @@ public class Product {
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
+
+    @OneToMany(mappedBy = "product")
+    List<Image> images = new ArrayList<>();
 }
+
 

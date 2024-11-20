@@ -5,4 +5,5 @@ import com.example.bluevelvetmusicstore.model.ProductDetailsVO;
 
 public interface ProductService {
     public ProductDetailsVO retrieveProductById(Long id);
+    public void deleteProduct(Long id);
 }
