@@ -68,48 +68,39 @@ main {
 }
 
 h2 {
-  display: inline;
-  font-size: calc(1em + 1vw);
-  margin: 0.5em;
-  text-decoration: underline;
+	display: inline;
+	font-size: calc(1em + 1vw);
+	margin: 0.5em;
+	text-decoration: underline;
 }
 
 h3 {
-  display: inline;
-  font-size: calc(0.75em + 1vw);
-  margin: 0.5em;
-}
-
-aside span {
-  display: inline;
-  font-size: calc(0.75em + 0.5vw);
-  text-align: center;
-  float: right;
-  margin: 0.5em 0;
-  /* border: #0f0 solid 1px; */
-}
-
-article div.row {
-  margin: 2em 0;
-  border: #bbb solid 1px;
-  border-radius: 1em;
-  padding: 1em;
-}
-
-article span {
-  display: inline;
-  font-size: calc(0.75em + 0.5vw);
-  text-align: center;
-  margin: 0.5em;
-  /* border: #0f0 solid 1px; */
+	display: inline;
+	font-size: calc(0.5em + 1vw);
+	margin: 0.5em;
 }
 
 article {
 	padding: 1em;
 	flex: 4;
 	border: #bbb solid 1px;
-  border-radius: 1em;
+	border-radius: 1em;
 	margin-right: 0.5em;
+}
+
+article div.row {
+	margin: 2em 0;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+article span {
+	display: inline;
+	font-size: calc(0.75em + 0.5vw);
+	text-align: center;
+	margin: 0.5em;
+	/* border: #0f0 solid 1px; */
 }
 
 #product-name {
@@ -182,26 +173,64 @@ aside {
 	flex: 2;
 	float: right;
 	border: #bbb solid 1px;
-  border-radius: 1em;
+	border-radius: 1em;
 	padding: 1em;
 }
 
 aside div {
-  display: block;
-  margin: 1em;
-  border: #bbb solid 1px;
-  border-radius: 1em;
-  padding: 1em;
+	display: block;
+	margin: 1em;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+aside div.row {
+	display: flex;
+}
+
+aside h3 {
+	border: #f00 solid 1px;
+	margin-right: auto;
+}
+
+aside span {
+	display: inline;
+	font-size: calc(0.75em + 0.5vw);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	float: right;
+	margin: 0.5em 0 0.5em 0;
+	border: #0f0 solid 1px;
 }
 
 aside input {
-  display: inline;
-  justify-content: center;
-  float: right;
-  width: 2em;
-  height: 2em;
-  margin: auto;
-  border: #bbb solid 1px;
-  border-radius: 1em;
-  padding: 2em;
+	display: inline;
+	justify-content: center;
+	float: right;
+	width: 2em;
+	height: 2em;
+	margin: auto;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 2em;
+}
+
+@media (max-width: 1100px) {
+	.container {
+		flex-direction: column;
+	}
+	header {
+		flex-direction: column;
+	}
+	main {
+		flex-direction: column;
+	}
+	article {
+		margin-right: 0;
+	}
+	aside {
+		flex-direction: column;
+	}
 }
