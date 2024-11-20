@@ -1,35 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Details</title>
-    <link rel="stylesheet" href="../styles/productDetails.css" />
-    <script defer src="../scripts/mobile-navbar.js"></script>
-    <script defer src="../scripts/carousel.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <div class="tittle">
-          <img src="../images/Logo.jpeg" alt="logo" class="logo" />
-          <h1>BlueVelvet Music Store</h1>
-        </div>
-        <h2>Product Details</h2>
-      </header> 
-      <main>
-        <h2 id="product-name">Product Name</h2>
-        <p id="product-description">Product Description</p>
-        <div class="carousel">
-          <button class="prev">&lt;</button>
-          <div class="carousel-images">
-            <img src="../images/guitarra-rocker_a489.jpg" alt="Product 1" />
-            <img src="../images/teste01.png" alt="Product 2" />
-            <img src="../images/teste02.png" alt="Product 3" />
-          </div>
-          <button class="next">&gt;</button>
-        </div>
-      </main>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Details</title>
+		<link rel="stylesheet" href="../styles/productDetails.css" />
+		<script defer src="../scripts/mobile-navbar.js"></script>
+		<script defer src="../scripts/carousel.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<div class="tittle">
+					<img src="../images/Logo.jpeg" alt="logo" class="logo" />
+					<h1>BlueVelvet Music Store</h1>
+				</div>
+				<h2>Product Details</h2>
+			</header>
+			<main>
+				<article>
+					<h2 id="product-name">Product Name</h2>
+					<div class="carousel">
+						<button class="prev">&lt;</button>
+						<div class="carousel-images">
+							<img
+								src="../images/guitarra-rocker_a489.jpg"
+								alt="Product 1"
+							/>
+							<img src="../images/teste01.png" alt="Product 2" />
+							<img src="../images/teste02.png" alt="Product 3" />
+						</div>
+						<button class="next">&gt;</button>
+					</div>
+					<h3>Product Description:</h3>
+					<span id="product-description">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Velit consectetur minima provident ipsa nobis! Qui
+						eveniet dolorem, praesentium quo, provident quisquam,
+						voluptatum saepe explicabo nisi consequuntur vero ab
+						doloremque ipsa.
+					</span>
+					<div class="row">
+						<h3>Product Category:</h3>
+						<span id="product-category">Category</span>
+					</div>
+					<div class="row">
+						<h3>Product Brand:</h3>
+						<span id="product-brand">Brand</span>
+					</div>
+				</article>
+				<aside>
+					<h2>Prices:</h2>
+					<div class="prices">
+						<div class="row">
+							<h3>List Price:</h3>
+							<span id="list-price">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Cost:</h3>
+							<span id="cost">50.00</span>
+						</div>
+						<div class="row">
+							<h3>Discount:</h3>
+							<span>%</span>
+							<span id="discount-percent">5</span>
+						</div>
+					</div>
+					<h2>Dimensions:</h2>
+					<div class="dimensions">
+						<div class="row">
+							<h3>Length:</h3>
+							<span id="length">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Width:</h3>
+							<span id="width">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Height:</h3>
+							<span id="height">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Weight:</h3>
+							<span id="weight">100.00</span>
+						</div>
+					</div>
+
+					<h2>Attributes:</h2>
+					<div class="attributes">
+						<div class="row">
+							<h3>Active:</h3>
+							<input type="checkbox" id="active" disabled />
+						</div>
+						<div class="row">
+							<h3>Stock Amount:</h3>
+							<span id="stock-amount">100</span>
+						</div>
+					</div>
+				</aside>
+			</main>
+		</div>
+	</body>
 </html>
