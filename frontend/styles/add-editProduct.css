@@ -1,0 +1,297 @@
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #ddd;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1em;
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button .arrow {
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0; 
+    color: #333;
+    border-color: #ccc;
+}
+
+.form-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+}
+
+.section-container {
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.section-container h3 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.section-container label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center; 
+}
+
+.attribute-field-container {
+    display: flex;
+    gap: 20px;
+}
+
+.styled-input, .stock-input, select.styled-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.url-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#imageUrl {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+#saveImageButton {
+    padding: 8px 12px;
+    background-color: #4B4B4B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+#saveImageButton:hover {
+    background-color: #45a049;
+}
+
+.carousel-container {
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+.image-item {
+    position: relative;
+    display: inline-block;
+}
+.carousel img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 8px;
+}
+.remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dimension-input{
+    width: 100px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.dimensions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.dimension-field {
+    display: flex;
+    align-items: center;
+}
+
+.unit {
+    font-size: 0.9em;
+    color: #555;
+    margin-left: 4px;
+    margin-right: 12px;
+}
+
+.prices-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.price-field {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.currency-symbol, .percent-symbol {
+    font-size: 1em;
+    color: #555;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.price-input{
+    width: 130px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.attributes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.attribute-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+}
+
+.add-button, .cancel-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-button {
+    background-color: #4B4B4B;
+}
+
+.add-button:hover {
+    background-color: #333;
+}
+
+.cancel-button {
+    background-color: #800020;
+}
+
+.cancel-button:hover {
+    background-color: #660016;
+}
+
+@media (max-width: 768px) {
+    .form-columns {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .image-upload-grid {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .add-button, .cancel-button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}

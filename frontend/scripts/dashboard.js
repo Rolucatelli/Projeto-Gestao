@@ -25,7 +25,11 @@ function populateTable(products) {
         row.appendChild(imageCell);
 
         const nameCell = document.createElement('td');
-        nameCell.textContent = product.name;
+        const linkElement = document.createElement('a');
+        linkElement.href = `productDetails.html?id=${product.id}`;
+        linkElement.textContent = product.name;
+        linkElement.classList.add('product-link');
+        nameCell.appendChild(linkElement);
         row.appendChild(nameCell);
 
         const descriptionCell = document.createElement('td');
@@ -43,7 +47,6 @@ function populateTable(products) {
         const priceCell = document.createElement('td');
         priceCell.textContent = product.price;
         row.appendChild(priceCell);
-
 
         tableBody.appendChild(row);
     });
@@ -242,4 +245,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+const addButton = document.getElementById('add-btn');
 
+    addButton.addEventListener('click', () => {
+      window.location.href = 'addProduct.html';
+    });

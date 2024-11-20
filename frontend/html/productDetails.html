@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Details</title>
+		<link rel="stylesheet" href="../styles/productDetails.css" />
+		<script defer src="../scripts/mobile-navbar.js"></script>
+		<script defer src="../scripts/productDetails.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<div class="tittle">
+                    <a href="./dashboard.html">
+                        <img src="../images/Logo.jpeg" alt="logo" class="logo" />
+                    </a>
+					<h1>BlueVelvet Music Store</h1>
+				</div>
+				<h2>Product Details</h2>
+			</header>
+			<main>
+				<article>
+					<h2 id="product-name">Product Name</h2>
+					<span id="product-short-description"
+						>Lorem ipsum dolor</span
+					>
+					<div class="carousel">
+						<button class="prev">&lt;</button>
+						<div class="carousel-images">
+							<img
+								src="../images/Logo.jpeg"
+								alt="Image Template"
+							/>
+						</div>
+						<button class="next">&gt;</button>
+					</div>
+					<h3>Product Description:</h3>
+					<span id="product-full-description">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Velit consectetur minima provident ipsa nobis! Qui
+						eveniet dolorem, praesentium quo, provident quisquam,
+						voluptatum saepe explicabo nisi consequuntur vero ab
+						doloremque ipsa.
+					</span>
+					<div class="row">
+						<h3>Product Category:</h3>
+						<span id="product-category">Category</span>
+					</div>
+					<div class="row">
+						<h3>Product Brand:</h3>
+						<span id="product-brand">Brand</span>
+					</div>
+				</article>
+				<aside>
+					<h2>Prices:</h2>
+					<div class="prices">
+						<div class="row">
+							<h3>List Price:</h3>
+							<span id="product-list-price">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Cost:</h3>
+							<span id="product-cost">50.00</span>
+						</div>
+						<div class="row">
+							<h3>Discount:</h3>
+							<span id="product-discount-percent">5</span>
+							<span>%</span>
+						</div>
+					</div>
+					<h2>Dimensions:</h2>
+					<div class="dimensions">
+						<div class="row">
+							<h3>Length:</h3>
+							<span id="product-length">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Width:</h3>
+							<span id="product-width">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Height:</h3>
+							<span id="product-height">100.00</span>
+						</div>
+						<div class="row">
+							<h3>Weight:</h3>
+							<span id="product-weight">100.00</span>
+						</div>
+					</div>
+
+					<h2>Attributes:</h2>
+					<div class="attributes">
+						<div class="row">
+							<h3>Active:</h3>
+							<input
+								type="checkbox"
+								id="product-active"
+								disabled
+							/>
+						</div>
+						<div class="row">
+							<h3>Stock Amount:</h3>
+							<span id="product-stock-amount">100</span>
+						</div>
+					</div>
+				</aside>
+			</main>
+		</div>
+	</body>
+</html>

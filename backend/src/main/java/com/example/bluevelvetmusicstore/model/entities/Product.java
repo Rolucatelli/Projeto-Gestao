@@ -59,23 +59,25 @@ public class Product {
   @Embedded private Dimensions dimensions;
 
   @OneToMany(mappedBy = "product")
-  List<Image> images = new ArrayList<>();
+  private List<Image> images = new ArrayList<>();
 
   public Product(
-      String name,
-      String shortDescription,
-      String fullDescription,
-      Category category,
-      BigDecimal price,
-      Integer discount,
-      Boolean isActive,
-      Integer stockAmount,
-      BigDecimal cost,
-      Dimensions dimensions) {
+          String name,
+          String shortDescription,
+          String fullDescription,
+          Category category,
+          String brand,
+          BigDecimal price,
+          Integer discount,
+          Boolean isActive,
+          Integer stockAmount,
+          BigDecimal cost,
+          Dimensions dimensions) {
     this.name = name;
     this.shortDescription = shortDescription;
     this.fullDescription = fullDescription;
     this.category = category;
+    this.brand = brand;
     this.price = price;
     this.discount = discount;
     this.isActive = isActive;
