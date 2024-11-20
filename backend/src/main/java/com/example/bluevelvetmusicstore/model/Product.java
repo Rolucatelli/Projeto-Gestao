@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,7 +33,7 @@ public class Product {
     private Category category;
 
     @Column(nullable = false)
-    private String Brand;
+    private String brand;
 
     @Column(nullable = false)
     private BigDecimal price;
@@ -57,6 +59,9 @@ public class Product {
 
     @Embedded
     private Dimensions dimensions;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<Image> imageList = new ArrayList<>();
 
     public Product(String name, String shortDescription, String fullDescription, Category category,
                    BigDecimal price, Integer discount, Boolean isActive, Integer stockAmount, BigDecimal cost,
