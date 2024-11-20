@@ -190,7 +190,7 @@ aside div.row {
 }
 
 aside h3 {
-	border: #f00 solid 1px;
+	/* border: #f00 solid 1px; */
 	margin-right: auto;
 }
 
@@ -202,7 +202,7 @@ aside span {
 	text-align: center;
 	float: right;
 	margin: 0.5em 0 0.5em 0;
-	border: #0f0 solid 1px;
+	/* border: #0f0 solid 1px; */
 }
 
 aside input {
