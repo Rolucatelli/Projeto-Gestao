@@ -1,6 +1,5 @@
 package com.example.bluevelvetmusicstore.service.product;
 
-import com.example.bluevelvetmusicstore.dao.product.ProductDao;
 import com.example.bluevelvetmusicstore.model.Image;
 import com.example.bluevelvetmusicstore.model.Product;
 import com.example.bluevelvetmusicstore.repository.ImageRepository;
