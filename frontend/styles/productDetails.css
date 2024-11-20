@@ -1,7 +1,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	/* border: #ff00ff solid 1px; */
 }
 
 :root {
@@ -62,7 +61,8 @@ main {
 	display: flex;
 	border: #000000 solid 1px;
 	border-radius: 2em;
-	margin: 6em;
+	margin: calc(1em + 2vw);
+	margin-top: 10vh;
 	padding: 1.5em;
 	height: auto;
 }
@@ -100,7 +100,6 @@ article span {
 	font-size: calc(0.75em + 0.5vw);
 	text-align: center;
 	margin: 0.5em;
-	/* border: #0f0 solid 1px; */
 }
 
 #product-name {
@@ -113,7 +112,6 @@ article span {
 	display: block;
 	font-size: calc(0.75em + 0.5vw);
 	margin-left: 1em;
-	/* border: #f0f solid 1px; */
 }
 
 .carousel {
@@ -123,7 +121,7 @@ article span {
 	margin: 2em 2em;
 	position: relative;
 	width: auto;
-	height: 15em;
+	height: calc(20em + 10vw);
 	border: 1px solid #ccc;
 	border-radius: 1em;
 	overflow: hidden;
@@ -190,7 +188,6 @@ aside div.row {
 }
 
 aside h3 {
-	/* border: #f00 solid 1px; */
 	margin-right: auto;
 }
 
@@ -202,16 +199,16 @@ aside span {
 	text-align: center;
 	float: right;
 	margin: 0.5em 0 0.5em 0;
-	/* border: #0f0 solid 1px; */
 }
 
 aside input {
 	display: inline;
 	justify-content: center;
+	align-items: center;
 	float: right;
-	width: 2em;
-	height: 2em;
-	margin: auto;
+	width: calc(0.25em + 2vw);
+	height: calc(0.25em + 2vw);
+	margin: auto 0 auto auto;
 	border: #bbb solid 1px;
 	border-radius: 1em;
 	padding: 2em;
@@ -221,6 +218,9 @@ aside input {
 	.container {
 		flex-direction: column;
 	}
+	.carousel {
+		margin: 1em 0;
+	}
 	header {
 		flex-direction: column;
 	}
@@ -229,6 +229,13 @@ aside input {
 	}
 	article {
 		margin-right: 0;
+	}
+	article h3, aside h3 {
+		font-size: 0.75em;
+		margin-left: 0;
+	}
+	article span, aside span{
+		font-size: 0.75em;
 	}
 	aside {
 		flex-direction: column;
