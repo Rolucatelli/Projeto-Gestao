@@ -28,4 +28,6 @@ public interface ProductService {
    *     search term is provided, all products are returned in a paginated format.
    */
   Page<ProductDashboardVO> retrieveAllProducts(String search, Pageable pageable);
+
+  public void deleteProduct(Long id);
 }
