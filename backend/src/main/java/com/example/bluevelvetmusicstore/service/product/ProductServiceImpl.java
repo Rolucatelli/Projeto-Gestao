@@ -1,31 +1,46 @@
 package com.example.bluevelvetmusicstore.service.product;
 
-import com.example.bluevelvetmusicstore.model.Image;
-import com.example.bluevelvetmusicstore.model.Product;
+import com.example.bluevelvetmusicstore.mappers.ProductMapper;
+import com.example.bluevelvetmusicstore.model.entities.Image;
+import com.example.bluevelvetmusicstore.model.entities.Product;
+import com.example.bluevelvetmusicstore.model.vo.ProductDashboardVO;
 import com.example.bluevelvetmusicstore.repository.ImageRepository;
 import com.example.bluevelvetmusicstore.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    private final ProductRepository productRepository;
-    private final ImageRepository imageRepository;
+  private final ProductRepository productRepository;
+  private final ProductMapper productMapper;
+  private final ImageRepository imageRepository;
 
-    @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, ImageRepository imageRepository) {
-        this.productRepository = productRepository;
-        this.imageRepository = imageRepository;
-    }
+  @Override
+  public Page<ProductDashboardVO> retrieveAllProducts(String search, Pageable pageable) {
+    Page<Product> productsPage =
+        Strings.isNotBlank(search)
+            ? productRepository.searchProducts(search, pageable)
+            : productRepository.findAll(pageable);
 
-    @Override
-    public void deleteProduct(Long id) {
-        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
-        List<Image> productImages = product.getImages();
-        imageRepository.deleteAllInBatch(productImages);
-        productRepository.deleteById(id);
-    }
+    List<ProductDashboardVO> productDashboardVOList =
+        productsPage.stream().map(productMapper::entityToDashVO).toList();
+
+    return new PageImpl<>(productDashboardVOList, pageable, productsPage.getTotalElements());
+  }
+
+  @Override
+  public void deleteProduct(Long id) {
+    Product product =
+        productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+    List<Image> productImages = product.getImages();
+    imageRepository.deleteAllInBatch(productImages);
+    productRepository.deleteById(id);
+  }
 }
