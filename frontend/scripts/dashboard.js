@@ -1,8 +1,10 @@
-
+let productDisplay = null;
 // Function to dynamically build the table rows
 function populateTable(products) {
     const tableBody = document.getElementById('product-table-body');
     tableBody.innerHTML = '';
+
+    productDisplay = products;
 
     products.forEach(product => {
         const row = document.createElement('tr');
@@ -168,9 +170,57 @@ sortableColumns.forEach(column => {
     });
 });
 
+
+// Delete Modal functions
+function renderDeleteModalOptions() {
+    const dropdown = document.getElementById('product-dropdown');
+    dropdown.innerHTML = '';
+
+    const defaultOption = document.createElement('option');
+    defaultOption.text = 'Select a product';
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    dropdown.appendChild(defaultOption);
+
+    productDisplay.forEach(product => {
+        const option = document.createElement('option');
+        option.text = product.name;
+        option.value = product.id;
+        dropdown.appendChild(option);
+    });
+}
+document.getElementById('delete-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    const productID = document.getElementById('product-dropdown').value;
+    console.log('Product ID to deletion:', productID);
+
+    // TODO: CALL DELETE ENDPOINT
+});
+
+
 // Call the function to fetch products and populate the table when the page loads
 document.addEventListener('DOMContentLoaded', function () {
     console.log(fetchProducts());
+
+    const rmvBtn = document.getElementById('rmv-btn');
+    const modal = document.getElementById('delete-modal');
+    const closeModal = document.getElementById('close-modal');
+    const cancelModal = document.getElementById('cancel-remove');
+
+    rmvBtn.addEventListener('click', () => {
+        modal.style.display = 'block';
+        renderDeleteModalOptions();
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    cancelModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
 });
 
 
