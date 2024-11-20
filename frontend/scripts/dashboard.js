@@ -1,3 +1,5 @@
+const API_BASE_URL = 'http://localhost:8080/api';
+
 let productDisplay = null;
 // Function to dynamically build the table rows
 function populateTable(products) {
@@ -61,8 +63,8 @@ let search = null;
 async function fetchProducts() {
     try {
         // Prepare URL
-        let url = `http://localhost:8080/api/product/v1/all?size=${size}&page=${page}`;
-        
+        let url = `${API_BASE_URL}/product/v1/all?size=${size}&page=${page}`;
+
         url += `&sortBy=${sortBy}&sortDirection=${sortAsc ? 'asc' : 'desc'}`;
 
         if (search != null) {
@@ -74,8 +76,8 @@ async function fetchProducts() {
         if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); }
 
         const data = await response.json();
-        console.log(data);
-        console.log('Products', data.content);
+        // console.log(data);
+        // console.log('Products', data.content);
 
         lastPage = data.page.totalPages - 1;
 
@@ -143,7 +145,7 @@ function renderPagination(totalPages, currentPage) {
 }
 
 // Function to search product by string:
-document.getElementById('search-btn').addEventListener('click', function() {
+document.getElementById('search-btn').addEventListener('click', function () {
     const input = document.getElementById('search-inp').value.trim();
     if (input.length > 0) {
         search = input;
@@ -162,10 +164,10 @@ const sortableColumns = document.querySelectorAll('.column-sortable');
 
 // Add a click event listener to each column
 sortableColumns.forEach(column => {
-    column.addEventListener('click', function() {
+    column.addEventListener('click', function () {
         sortAsc = !sortAsc;
         sortBy = column.id;
-        console.log(`Sorting by [${sortBy}] in ${sortAsc ? 'asc' : 'desc'} order`)
+        // console.log(`Sorting by [${sortBy}] in ${sortAsc ? 'asc' : 'desc'} order`)
         fetchProducts();
     });
 });
@@ -189,13 +191,25 @@ function renderDeleteModalOptions() {
         dropdown.appendChild(option);
     });
 }
-document.getElementById('delete-form').addEventListener('submit', function(event) {
+document.getElementById('delete-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting
 
     const productID = document.getElementById('product-dropdown').value;
-    console.log('Product ID to deletion:', productID);
+    // console.log('Product ID to deletion:', productID);
 
-    // TODO: CALL DELETE ENDPOINT
+    fetch(`${API_BASE_URL}/product/v1/${productID}`, {
+        method: 'DELETE'
+    }).then((response) => {
+        if (response.ok) {
+            console.log(`Product with ID ${productID} was successfully deleted.`);
+            fetchProducts();
+        } else {
+            console.error(`Failed to delete product with ID ${productId}.`, response.status, response.statusText);
+        }
+    })
+        .catch((error) => {
+            console.error('An error occurred:', error);
+        });
 });
 
 
@@ -207,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('delete-modal');
     const closeModal = document.getElementById('close-modal');
     const cancelModal = document.getElementById('cancel-remove');
+    const confirmRemove = document.getElementById('confirm-remove');
 
     rmvBtn.addEventListener('click', () => {
         modal.style.display = 'block';
@@ -218,6 +233,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     cancelModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    confirmRemove.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
