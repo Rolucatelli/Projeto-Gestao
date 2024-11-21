@@ -1,0 +1,247 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* HEADER */
+
+header .container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header .container .logo img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+header .container .labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header .container .labels h1 {
+    font-size: 32px;
+    margin: 0;
+    color: black;
+}
+
+header .container .labels p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* MAIN */
+
+main .container {
+    margin-bottom: 20px;
+}
+
+main .container .data-operations {
+    width: auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .container .data-operations #search-box input {
+    height: 25px;
+    width: auto;
+}
+
+main .container .data-operations #search-box button {
+    height: 30px;
+    width: auto;
+}
+
+main .container .data-operations .top-btn {
+    width: auto;
+    height: 30px;
+    padding-inline: 15px;
+}
+
+main .container .data-operations #add-btn {
+    background-color: green;
+    color: white;
+    border-color: rgb(0, 173, 0);
+}
+
+main .container .data-operations #rmv-btn {
+    background-color: red;
+    color: white;
+    border-color: rgb(160, 0, 0);
+}
+
+main .container .data-operations #edt-btn {
+    background-color: yellow;
+    color: black;
+    border-color: rgb(197, 197, 3);
+}
+
+/* TABLE */
+
+main table {
+    margin: 5px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main table thead tr th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    background-color: #636262;
+    color: white;
+}
+
+main table tbody tr td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.product-image-cell {
+    width: 80px;
+    height: auto;
+}
+
+.product-image {
+    width: 100%; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+/* PAGINATION BOX */
+
+main .container #pagination-box {
+    margin: 10px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .container #pagination-box .pagination-btn {
+    width: 65px;
+    height: 40px;
+}
+
+/* MODAL SCREEN */
+
+/* MODAL SCREEN */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Center vertically */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Width of modal */
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Centered Title */
+.modal-content p:first-child {
+    text-align: center;
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    margin-top: -20px; /* Removes padding effect on modal border */
+    margin-left: -20px;
+    margin-right: -20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Styling form elements */
+#delete-form label,
+#product-dropdown {
+    display: inline-block;
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#product-dropdown {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button styling */
+#delete-form button {
+    padding: 10px 15px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#delete-form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+#delete-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+#cancel-remove {
+    background-color: #dc3545;
+    color: white;
+}
+
+#cancel-remove:hover {
+    background-color: #c82333;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
