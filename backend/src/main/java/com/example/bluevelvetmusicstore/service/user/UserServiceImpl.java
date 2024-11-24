@@ -7,6 +7,7 @@ import com.example.bluevelvetmusicstore.model.vo.CreateUserVO;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -20,10 +21,21 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User createUser(User user){
+
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("Erro: O email já está em uso.");
+        }
+
         String encryptedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
         user.setEnabled(true);
-        return userRepository.save(user);
+        return userRepository.save(user);  
     }
 }
+
+
+
+
+
+
 
