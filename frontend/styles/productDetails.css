@@ -1,0 +1,243 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--container-background: #ffffff;
+	--header-text-color: #000000;
+	--header-a-hover-color: #8b0000;
+	--menu-icon-color: #000000;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+.container {
+	display: flex;
+	height: auto;
+	flex-direction: column;
+	background-color: var(--container-background);
+	margin: 2vh 2vw;
+	border: #000000 solid 1px;
+	border-radius: 2em;
+}
+
+header {
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 10vh;
+	color: var(--header-text-color);
+	align-items: start;
+	z-index: 1;
+}
+
+.tittle {
+	display: inline-flex;
+	margin: 2em 2em;
+}
+
+.logo {
+	width: calc(1.5em + 4vh);
+	height: calc(1.5em + 4vh);
+	display: inline;
+}
+
+header h1 {
+	font-size: calc(1.25em + 1.5vw);
+	display: inline;
+}
+
+header h2 {
+	font-size: calc(0.75em + 1.5vw);
+	margin: auto 1em;
+	display: block;
+}
+
+main {
+	display: flex;
+	border: #000000 solid 1px;
+	border-radius: 2em;
+	margin: calc(1em + 2vw);
+	margin-top: 10vh;
+	padding: 1.5em;
+	height: auto;
+}
+
+h2 {
+	display: inline;
+	font-size: calc(1em + 1vw);
+	margin: 0.5em;
+	text-decoration: underline;
+}
+
+h3 {
+	display: inline;
+	font-size: calc(0.5em + 1vw);
+	margin: 0.5em;
+}
+
+article {
+	padding: 1em;
+	flex: 4;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	margin-right: 0.5em;
+}
+
+article div.row {
+	margin: 2em 0;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+article span {
+	display: inline;
+	font-size: calc(0.75em + 0.5vw);
+	text-align: center;
+	margin: 0.5em;
+}
+
+#product-name {
+	display: block;
+	font-size: calc(1em + 1vw);
+	margin-bottom: 0.5em;
+}
+
+#product-description {
+	display: block;
+	font-size: calc(0.75em + 0.5vw);
+	margin-left: 1em;
+}
+
+.carousel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2em 2em;
+	position: relative;
+	width: auto;
+	height: calc(20em + 10vw);
+	border: 1px solid #ccc;
+	border-radius: 1em;
+	overflow: hidden;
+}
+
+.carousel-images {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	width: 100%;
+}
+
+.carousel-images img {
+	width: 100%;
+	flex-shrink: 0;
+	object-fit: cover;
+}
+
+button.prev,
+button.next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: none;
+	padding: 0.5em 1em;
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 10; /* Certifique-se de que os botões estão acima de outros elementos */
+}
+
+button.prev {
+	left: 10px;
+}
+
+button.next {
+	right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+aside {
+	display: block;
+	flex: 2;
+	float: right;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+aside div {
+	display: block;
+	margin: 1em;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+aside div.row {
+	display: flex;
+}
+
+aside h3 {
+	margin-right: auto;
+}
+
+aside span {
+	display: inline;
+	font-size: calc(0.75em + 0.5vw);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	float: right;
+	margin: 0.5em 0 0.5em 0;
+}
+
+aside input {
+	display: inline;
+	justify-content: center;
+	align-items: center;
+	float: right;
+	width: calc(0.25em + 2vw);
+	height: calc(0.25em + 2vw);
+	margin: auto 0 auto auto;
+	border: #bbb solid 1px;
+	border-radius: 1em;
+	padding: 2em;
+}
+
+@media (max-width: 1100px) {
+	.container {
+		flex-direction: column;
+	}
+	.carousel {
+		margin: 1em 0;
+	}
+	header {
+		flex-direction: column;
+	}
+	main {
+		flex-direction: column;
+	}
+	article {
+		margin-right: 0;
+	}
+	article h3, aside h3 {
+		font-size: 0.75em;
+		margin-left: 0;
+	}
+	article span, aside span{
+		font-size: 0.75em;
+	}
+	aside {
+		flex-direction: column;
+	}
+}

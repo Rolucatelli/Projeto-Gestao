@@ -1,7 +1,10 @@
 package com.example.bluevelvetmusicstore.service.product;
 
 import com.example.bluevelvetmusicstore.model.entities.Product;
+import com.example.bluevelvetmusicstore.model.vo.CreateProductVO;
+import com.example.bluevelvetmusicstore.model.vo.DetailProductVO;
 import com.example.bluevelvetmusicstore.model.vo.ProductDashboardVO;
+import com.example.bluevelvetmusicstore.model.vo.ProductDetailsVO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -28,6 +31,7 @@ public interface ProductService {
    *     search term is provided, all products are returned in a paginated format.
    */
   Page<ProductDashboardVO> retrieveAllProducts(String search, Pageable pageable);
-
   public void deleteProduct(Long id);
+  public ProductDetailsVO retrieveProductById(Long id);
+  public DetailProductVO save(CreateProductVO data);
 }

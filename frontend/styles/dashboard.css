@@ -239,3 +239,9 @@ main .container #pagination-box .pagination-btn {
     text-decoration: none;
     cursor: pointer;
 }
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
