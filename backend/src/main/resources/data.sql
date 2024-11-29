@@ -83,3 +83,35 @@ INSERT INTO roles (name, description) VALUES ('Sales Manager', 'Manages product 
 INSERT INTO roles (name, description) VALUES ('Editor', 'Manages categories, brands, products, articles, and menus');
 INSERT INTO roles (name, description) VALUES ('Shipping Manager', 'Views products, view orders, and update order status');
 INSERT INTO roles (name, description) VALUES ('Assistant', 'Manages questions and reviews');
+
+-- Insert data into 'users' table
+INSERT INTO users (email, first_name, last_name, password, enabled) VALUES
+('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', TRUE),
+('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', TRUE),
+('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', FALSE),
+('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', TRUE),
+('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', FALSE);
+
+-- Assign roles to Alice Smith
+INSERT INTO user_roles (user_id, role_id) VALUES
+('alice.smith@example.com', 1), -- Administrator
+('alice.smith@example.com', 2); -- Sales Manager
+
+-- Assign roles to Bob Jones
+INSERT INTO user_roles (user_id, role_id) VALUES
+('bob.jones@example.com', 2), -- Sales Manager
+('bob.jones@example.com', 3); -- Editor
+
+-- Assign roles to Charlie Brown
+INSERT INTO user_roles (user_id, role_id) VALUES
+('charlie.brown@example.com', 4); -- Shipping Manager
+
+-- Assign roles to Diana Prince
+INSERT INTO user_roles (user_id, role_id) VALUES
+('diana.prince@example.com', 1), -- Administrator
+('diana.prince@example.com', 5); -- Assistant
+
+-- Assign roles to Eve Adams
+INSERT INTO user_roles (user_id, role_id) VALUES
+('eve.adams@example.com', 3), -- Editor
+('eve.adams@example.com', 5); -- Assistant
