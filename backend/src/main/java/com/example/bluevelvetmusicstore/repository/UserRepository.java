@@ -11,7 +11,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
-  @Query("SELECT u FROM User u JOIN u.roles r WHERE r.name = :roleName")
+  @Query(
+      """
+    SELECT u
+    FROM User u
+    JOIN u.roles r
+    WHERE (:roleName IS NULL OR r.name = :roleName)
+""")
   Page<User> findAllByRoleName(@Param("roleName") String roleName, Pageable pageable);
 
   boolean existsByEmail(String email);

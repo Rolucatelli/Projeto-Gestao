@@ -13,5 +13,5 @@ public interface UserService {
 
   UserDataVO findUserByEmail(String email);
 
-    Page<UserDataVO> retrieveAllUsers(UserRole searchRole, Pageable pageable);
+  Page<UserDataVO> retrieveAllUsers(UserRole searchRole, Pageable pageable);
 }
