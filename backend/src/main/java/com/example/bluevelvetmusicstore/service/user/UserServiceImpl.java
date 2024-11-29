@@ -1,41 +1,37 @@
 package com.example.bluevelvetmusicstore.service.user;
 
 import com.example.bluevelvetmusicstore.model.entities.User;
-import com.example.bluevelvetmusicstore.repository.UserRepository;
-import org.springframework.stereotype.Service;
 import com.example.bluevelvetmusicstore.model.vo.CreateUserVO;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.beans.factory.annotation.Autowired;
-
-
+import com.example.bluevelvetmusicstore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService{
-    @Autowired
-    private final UserRepository userRepository;
+public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+  private final UserRepository userRepository;
+  private final PasswordEncoder passwordEncoder;
 
-    @Override
-    public User createUser(User user){
+  @Override
+  public User createUser(CreateUserVO createUser) {
 
-        if (userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("Erro: O email já está em uso.");
-        }
-
-        String encryptedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encryptedPassword);
-        user.setEnabled(true);
-        return userRepository.save(user);  
+    if (userRepository.existsByEmail(createUser.email())) {
+      throw new IllegalArgumentException("There is another user with the e-mail provided.");
     }
+
+    String encryptedPassword = passwordEncoder.encode(createUser.password());
+
+    User user =
+        new User(
+            createUser.email(),
+            createUser.firstName(),
+            createUser.lastName(),
+            encryptedPassword,
+            createUser.photo(),
+            true);
+
+    return userRepository.save(user);
+  }
 }
-
-
-
-
-
-
-
