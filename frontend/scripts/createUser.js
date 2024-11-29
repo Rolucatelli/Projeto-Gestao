@@ -28,35 +28,55 @@ document.getElementById("userForm").addEventListener("submit", async function (e
         firstName,
         lastName,
         password,
-        photo: image ? image.url : null,
-        enabled: document.querySelector('input[name="enabled"]:checked').value,
+        photo: image ? image.url : null
     };
 
     try {
-        const response = await fetch("/api/users", {
+
+        console.log('Create user data:', formData);
+
+        const response = await fetch("http://localhost:8080/api/user/v1/create", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
         });
 
-        const message = await response.text();
-        const messageElement = document.getElementById("message");
-        messageElement.textContent = message;
-
+        console.log('Response:', response);
         if (response.ok) {
-            messageElement.style.color = "green";
-            setTimeout(() => {
-                window.location.href = "/users";
-            }, 2000);
+            console.log('Response OK');
+            alert(`User ${formData.firstName} ${formData.lastName} was created with success!`);
+            cleanForm();
         } else {
-            messageElement.style.color = "red";
+            const responseBody = await response.json(); // Parse the response body as JSON
+            console.log('Response not OK. Body:', responseBody);
+            alert(`An error occurred while creating this user. ${responseBody.message}`);
+            cleanForm(responseBody.message);
         }
     } catch (error) {
+        console.log('ERROR', error);
         const messageElement = document.getElementById("message");
         messageElement.textContent = "Error: " + error.message;
         messageElement.style.color = "red";
     }
 });
+
+function cleanForm(message) {
+
+    const messageContainer = document.getElementById('email-message');
+
+    document.getElementById("email").value = "";
+
+    if (message) {
+        messageContainer.textContent = message;
+        messageContainer.style.display = "block";
+    } else {
+        messageContainer.style.display = "none";
+
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+        document.getElementById("password").value = "";
+    }
+}
 
 let image = null;
 
