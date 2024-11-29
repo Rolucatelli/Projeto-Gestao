@@ -77,6 +77,14 @@ VALUES
 -- Principal image for product with ID 15
     ('https://m.media-amazon.com/images/I/71oYw-nKBZL._AC_UF1000,1000_QL80_.jpg', 'Main image for Product 15', true, 15);
 
+-- Insert data into the 'roles' table
+INSERT INTO roles (name, description) VALUES ('Administrator', 'Manages everything');
+INSERT INTO roles (name, description) VALUES ('Sales Manager', 'Manages product price, customers, shipping, orders and sales report');
+INSERT INTO roles (name, description) VALUES ('Editor', 'Manages categories, brands, products, articles, and menus');
+INSERT INTO roles (name, description) VALUES ('Shipping Manager', 'Views products, view orders, and update order status');
+INSERT INTO roles (name, description) VALUES ('Assistant', 'Manages questions and reviews');
+
+-- Insert data into 'users' table
 INSERT INTO users (email, first_name, last_name, password, photo, enabled) VALUES
 ('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', NULL, TRUE),
 ('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', NULL, TRUE),

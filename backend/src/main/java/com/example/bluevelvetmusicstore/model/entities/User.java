@@ -1,24 +1,25 @@
 package com.example.bluevelvetmusicstore.model.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
+@Data
 public class User {
 
   @Id
   @Column(nullable = false, unique = true, length = 128)
   private String email;
 
-  @Column(nullable = false)
+  @Column(name = "first_name", nullable = false, length = 60)
   private String firstName;
 
-  @Column(nullable = false)
+  @Column(name = "last_name", nullable = false, length = 60)
   private String lastName;
 
   @Column(nullable = false, length = 60)
@@ -28,5 +29,5 @@ public class User {
   private String photo;
 
   @Column(nullable = false)
-  private boolean enabled;
+  private Boolean enabled;
 }
