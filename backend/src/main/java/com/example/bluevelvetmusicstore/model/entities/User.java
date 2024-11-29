@@ -3,14 +3,18 @@ package com.example.bluevelvetmusicstore.model.entities;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@Builder
 public class User {
 
   @Id
@@ -25,6 +29,9 @@ public class User {
 
   @Column(nullable = false, length = 64)
   private String password;
+
+  @Column(nullable = true, length = 80)
+  private String photo;
 
   @Column(nullable = false)
   private Boolean enabled;

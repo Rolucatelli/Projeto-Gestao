@@ -42,18 +42,18 @@ INSERT INTO images (url, description, is_principal, product_id)
 VALUES
 -- Principal image for product with ID 1
     ('https://upload.wikimedia.org/wikipedia/pt/f/fb/Beatles-one.jpg', 'Main image for Product 1', true, 1),
-    ('https://example.com/product1_image1.jpg', 'Optional image 1 for Product 1', false, 1),
-    ('https://example.com/product1_image2.jpg', 'Optional image 2 for Product 1', false, 1),
+    ('https://m.media-amazon.com/images/M/MV5BYmYyMzQzODUtYTc2NC00MWU4LWEzNTYtNTk4Yjk0MTA0M2M1XkEyXkFqcGc@._V1_.jpg', 'Optional image 1 for Product 1', false, 1),
+    ('https://images-americanas.b2w.io/produtos/7390019/imagens/cd-queen-greatest-hits-ii/7390019_1_xlarge.jpg', 'Optional image 2 for Product 1', false, 1),
 -- Principal image for product with ID 2
     ('https://i0.wp.com/www.wikimetal.com.br/wp-content/uploads/2018/09/Queen-Live-Aid.jpg?fit=696%2C406&ssl=1', 'Main image for Product 2', true, 2),
-    ('https://example.com/product2_image1.jpg', 'Optional image for Product 2', false, 2),
+    ('https://cdn.prod.website-files.com/655e0fa544c67c1ee5ce01c7/655e0fa544c67c1ee5ce11c2_live-performance-tips-to-help-you-put-on-a-great-show-header.jpeg', 'Optional image for Product 2', false, 2),
 -- Principal image for product with ID 3
     ('https://i.scdn.co/image/ab67616d0000b273f31a4cd4fcf00749d0d49422', 'Main image for Product 3', true, 3),
-    ('https://example.com/product3_image1.jpg', 'Optional image 1 for Product 3', false, 3),
-    ('https://example.com/product3_image2.jpg', 'Optional image 2 for Product 3', false, 3),
+    ('https://i.ytimg.com/vi/ogguLW6n6VI/maxresdefault.jpg', 'Optional image 1 for Product 3', false, 3),
+    ('https://guitar.com/wp-content/uploads/2018/02/how-to-buy-acoustic-guitar-scaled.jpg', 'Optional image 2 for Product 3', false, 3),
 -- Principal image for product with ID 4
     ('https://aimm.edu/hubfs/rock-guitar-genre.jpg', 'Main image for Product 4', true, 4),
-    ('https://example.com/product4_image1.jpg', 'Optional image for Product 4', false, 4),
+    ('https://media.sweetwater.com/m/insync/2022/06/Featured-Guitar-9-Exceptional-Electric-Guitars.jpg', 'Optional image for Product 4', false, 4),
 -- Principal image for product with ID 5
     ('https://collingsguitars.com/wp-content/uploads/2023/12/hero1-aspect-ratio-2-1-1024x512.jpg', 'Main image for Product 5', true, 5),
 -- Principal image for product with ID 6
@@ -85,12 +85,12 @@ INSERT INTO roles (name, description) VALUES ('Shipping Manager', 'Views product
 INSERT INTO roles (name, description) VALUES ('Assistant', 'Manages questions and reviews');
 
 -- Insert data into 'users' table
-INSERT INTO users (email, first_name, last_name, password, enabled) VALUES
-('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', TRUE),
-('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', TRUE),
-('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', FALSE),
-('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', TRUE),
-('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', FALSE);
+INSERT INTO users (email, first_name, last_name, password, photo, enabled) VALUES
+('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', NULL, TRUE),
+('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', NULL, TRUE),
+('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', NULL, FALSE),
+('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', NULL, TRUE),
+('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', NULL, FALSE);
 
 -- Assign roles to Alice Smith
 INSERT INTO user_roles (user_id, role_id) VALUES
