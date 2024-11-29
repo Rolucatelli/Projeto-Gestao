@@ -79,6 +79,25 @@ nav {
   transition: 0.3s;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5vh;
+  background-color: var(--header-background);
+  color: var(--header-text-color);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2em;
+  border-top: 2px solid black;
+}
+
+footer p {
+  font-size: calc(0.5em + 0.5vw);
+}
+
 @media screen and (max-width: 1380px) {
   body {
     overflow-x: hidden;
