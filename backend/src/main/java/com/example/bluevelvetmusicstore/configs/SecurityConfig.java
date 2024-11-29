@@ -59,7 +59,7 @@ public class SecurityConfig {
                       config.setAllowedOrigins(
                           List.of(
                               "http://localhost:5500",
-                              "http://127.0.0.1:5500")); // Allow requests from any origin
+                              "http://127.0.0.1:5500")); // Allow requests from local origin
                       config.setAllowedMethods(
                           List.of("GET", "POST", "PUT", "DELETE")); // Allow all HTTP methods
                       config.setAllowedHeaders(Collections.singletonList("*")); // Allow all headers
