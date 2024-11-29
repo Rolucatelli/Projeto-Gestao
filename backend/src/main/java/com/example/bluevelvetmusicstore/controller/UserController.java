@@ -1,12 +1,10 @@
 package com.example.bluevelvetmusicstore.controller;
 
-import jakarta.validation.Valid;
-
 import com.example.bluevelvetmusicstore.model.entities.User;
 import com.example.bluevelvetmusicstore.model.vo.CreateUserVO;
 import com.example.bluevelvetmusicstore.service.user.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
