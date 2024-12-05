@@ -12,4 +12,8 @@ public interface UserService {
   UserDataVO findUserByEmail(String email);
 
   Page<UserDataVO> retrieveAllUsers(Pageable pageable);
+
+  void deleteUser(String email);
+
+  UserDataVO updateUser(String email, CreateUserVO updatedUserVO);
 }
