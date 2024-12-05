@@ -1,9 +1,11 @@
 package com.example.bluevelvetmusicstore.service.user;
 
+import com.example.bluevelvetmusicstore.enums.UserRole;
 import com.example.bluevelvetmusicstore.model.entities.User;
 import com.example.bluevelvetmusicstore.model.vo.CreateUserVO;
 import com.example.bluevelvetmusicstore.model.vo.UserDataVO;
 import com.example.bluevelvetmusicstore.repository.UserRepository;
+import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,13 +29,14 @@ public class UserServiceImpl implements UserService {
     String encryptedPassword = passwordEncoder.encode(createUser.password());
 
     User user =
-        new User(
-            createUser.email(),
-            createUser.firstName(),
-            createUser.lastName(),
-            encryptedPassword,
-            createUser.photo(),
-            true);
+        User.builder()
+            .email(createUser.email())
+            .firstName(createUser.firstName())
+            .lastName(createUser.lastName())
+            .password(encryptedPassword)
+            .photo(createUser.photo())
+            .enabled(true)
+            .build();
 
     return userRepository.save(user);
   }
@@ -47,8 +50,9 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public Page<UserDataVO> retrieveAllUsers(Pageable pageable) {
-    Page<User> usersPage = userRepository.findAll(pageable);
+  public Page<UserDataVO> retrieveAllUsers(UserRole searchRole, Pageable pageable) {
+    String roleName = (Objects.isNull(searchRole)) ? null : searchRole.toString();
+    Page<User> usersPage = userRepository.findAllByRoleName(roleName, pageable);
     return usersPage.map(
         users ->
             new UserDataVO(
