@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserService {
   User createUser(CreateUserVO createUser);
-
   UserDataVO findUserByEmail(String email);
-
+  void deleteUser(String email);
+  UserDataVO updateUser(String email, CreateUserVO updatedUserVO);
   Page<UserDataVO> retrieveAllUsers(UserRole searchRole, Pageable pageable);
 }
