@@ -91,3 +91,27 @@ INSERT INTO users (email, first_name, last_name, password, photo, enabled) VALUE
 ('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', NULL, FALSE),
 ('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', NULL, TRUE),
 ('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', NULL, FALSE);
+
+-- Assign roles to Alice Smith
+INSERT INTO user_roles (user_id, role_id) VALUES
+('alice.smith@example.com', 1), -- Administrator
+('alice.smith@example.com', 2); -- Sales Manager
+
+-- Assign roles to Bob Jones
+INSERT INTO user_roles (user_id, role_id) VALUES
+('bob.jones@example.com', 2), -- Sales Manager
+('bob.jones@example.com', 3); -- Editor
+
+-- Assign roles to Charlie Brown
+INSERT INTO user_roles (user_id, role_id) VALUES
+('charlie.brown@example.com', 4); -- Shipping Manager
+
+-- Assign roles to Diana Prince
+INSERT INTO user_roles (user_id, role_id) VALUES
+('diana.prince@example.com', 1), -- Administrator
+('diana.prince@example.com', 5); -- Assistant
+
+-- Assign roles to Eve Adams
+INSERT INTO user_roles (user_id, role_id) VALUES
+('eve.adams@example.com', 3), -- Editor
+('eve.adams@example.com', 5); -- Assistant
