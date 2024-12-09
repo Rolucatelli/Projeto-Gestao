@@ -1,5 +1,6 @@
 package com.example.bluevelvetmusicstore.controller;
 
+import com.example.bluevelvetmusicstore.enums.UserRole;
 import com.example.bluevelvetmusicstore.model.entities.User;
 import com.example.bluevelvetmusicstore.model.vo.CreateUserVO;
 import com.example.bluevelvetmusicstore.model.vo.ExceptionVO;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -40,10 +42,35 @@ public class UserController {
 
   @GetMapping("/all")
   public ResponseEntity<Page<UserDataVO>> getAllUser(
-      @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
+      @RequestParam(defaultValue = "0") int page,
+      @RequestParam(defaultValue = "10") int size,
+      @RequestParam(required = false) UserRole searchRole) {
     Pageable pageable =
-        PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, "firstName", "lastName"));
-    Page<UserDataVO> userDataVO = userService.retrieveAllUsers(pageable);
+      PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, "firstName", "lastName"));
+    Page<UserDataVO> userDataVO = userService.retrieveAllUsers(searchRole, pageable);
     return ResponseEntity.ok(userDataVO);
+  }
+
+  @DeleteMapping("/delete/{email}")
+  public ResponseEntity<String> deleteUser(@PathVariable String email) {
+    try {
+      userService.deleteUser(email);
+      return ResponseEntity.ok("User deleted with sucess.");
+    } catch (IllegalArgumentException e) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found: " + e.getMessage());
+    }
+  }
+
+  @PutMapping("/update/{email}")
+  public ResponseEntity<?> updateUser(
+      @PathVariable String email,
+      @RequestBody CreateUserVO updatedUserVO) {
+    try {
+      UserDataVO updatedUser = userService.updateUser(email, updatedUserVO);
+      return ResponseEntity.ok(updatedUser);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body("User not found");
+    }
   }
 }

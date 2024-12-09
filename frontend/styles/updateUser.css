@@ -88,7 +88,7 @@ label {
     margin-top: 20px;
 }
 
-.add-button, .cancel-button {
+.update-button, .cancel-button {
     padding: 12px 25px;
     font-size: 1.1em;
     font-weight: bold;
@@ -97,18 +97,18 @@ label {
     cursor: pointer;
 }
 
-.add-button {
-    background-color: #226109;
+.update-button {
+    background-color: #c4b812;
     color: white;
     transition: all 0.3s ease;
 }
 
-.add-button:hover {
-    background-color: #184406;
+.update-button:hover {
+    background-color: #8d840d;
     transform: scale(1.05);
 }
 
-.add-button:focus {
+.update-button:focus {
     outline: none;
     box-shadow: 0 0 8px rgba(72, 179, 55, 0.6);
 }
@@ -220,7 +220,7 @@ label {
         flex-direction: column;
     }
 
-    .add-button, .cancel-button {
+    .update-button, .cancel-button {
         width: 100%;
         font-size: 1.2em;
     }
