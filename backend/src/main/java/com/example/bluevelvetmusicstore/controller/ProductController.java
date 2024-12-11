@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +22,7 @@ public class ProductController {
 
   private final ProductService productService;
 
+  @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'EDITOR', 'SHIPPING_MANAGER')")
   @GetMapping("/all")
   public ResponseEntity<Page<ProductDashboardVO>> listAllDashboard(
       @RequestParam(defaultValue = "0") int page,
@@ -37,6 +39,7 @@ public class ProductController {
     return ResponseEntity.ok(products);
   }
 
+  @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'EDITOR')")
   @PostMapping("/create")
   public ResponseEntity<DetailProductVO> createProduct(
           @RequestBody CreateProductVO createProductVO) {
@@ -44,12 +47,14 @@ public class ProductController {
     return ResponseEntity.ok(response);
   }
 
+  @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'EDITOR', 'SHIPPING_MANAGER')")
   @GetMapping("/{id}")
   public ResponseEntity<ProductDetailsVO> retrieveProductById(@PathVariable Long id) {
     ProductDetailsVO product = productService.retrieveProductById(id);
     return ResponseEntity.ok(product);
   }
 
+  @PreAuthorize("hasRole('ADMINISTRATOR')")
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
     productService.deleteProduct(id);

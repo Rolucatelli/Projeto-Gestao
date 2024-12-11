@@ -2,11 +2,14 @@ package com.example.bluevelvetmusicstore.model.entities;
 
 import jakarta.persistence.*;
 import java.util.List;
+import java.util.Optional;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 @Entity
 @Table(name = "users")
@@ -36,6 +39,9 @@ public class User {
   @Column(nullable = false)
   private Boolean enabled;
 
+  @Column(nullable = false)
+  private String username;
+
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
       name = "user_roles",
@@ -45,5 +51,21 @@ public class User {
 
   public List<String> getRoleNames() {
     return roles.stream().map(Role::getName).toList();
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public String getRole() {
+    return roles.isEmpty() ? null : roles.get(0).getName();
+  }
+
+  public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
   }
 }

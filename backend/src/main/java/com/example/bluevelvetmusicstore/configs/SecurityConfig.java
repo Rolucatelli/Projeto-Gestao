@@ -40,12 +40,13 @@ public class SecurityConfig {
         .authorizeHttpRequests(
             authorizeHttpRequest ->
                 authorizeHttpRequest
-                    .requestMatchers("/api/**", "/v3/api-docs/**", "/h2-console/**")
-                    .permitAll()
-                    .requestMatchers("/api/authenticated") // does not exist
-                    .authenticated()
-                    .requestMatchers("/users")
-                    .denyAll())
+                        .requestMatchers("/api/**", "/v3/api-docs/**", "/h2-console/**").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMINISTRATOR")
+                        .requestMatchers("/products/**").hasAnyRole("ADMINISTRATOR", "EDITOR", "SHIPPING_MANAGER")
+                        .requestMatchers("/sales/**").hasRole("SALES_MANAGER")
+                        .requestMatchers("/reviews/**").hasRole("ASSISTANT")
+                        .anyRequest()
+                        .authenticated())
         .headers(
             headers ->
                 headers.frameOptions(

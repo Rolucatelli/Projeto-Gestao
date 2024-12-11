@@ -4,6 +4,7 @@ import com.example.bluevelvetmusicstore.model.vo.CategoryListVO;
 import com.example.bluevelvetmusicstore.service.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,6 +14,7 @@ public class CategoryController {
 
   private final CategoryService categoryService;
 
+  @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'EDITOR')")
   @GetMapping("/all")
   public ResponseEntity<CategoryListVO> getAllCategories() {
     CategoryListVO response = categoryService.getCategories();

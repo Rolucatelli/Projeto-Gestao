@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
@@ -21,4 +23,6 @@ public interface UserRepository extends JpaRepository<User, String> {
   Page<User> findAllByRoleName(@Param("roleName") String roleName, Pageable pageable);
 
   boolean existsByEmail(String email);
+
+  Optional<Object> findByUsername(String username);
 }
