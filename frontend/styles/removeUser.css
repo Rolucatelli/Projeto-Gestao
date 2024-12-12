@@ -117,6 +117,7 @@ label {
     background-color: #6c757d;
     color: white;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .cancel-button:hover {
