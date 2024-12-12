@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
   public UserDataVO findUserByEmail(String email) {
     User user = userRepository.findById(email).orElseThrow(() -> new RuntimeException("User not found"));
     return new UserDataVO(
-        user.getEmail(), user.getFirstName(), user.getLastName(), user.getEnabled());
+        user.getEmail(), user.getFirstName(), user.getLastName(), user.getEnabled(), user.getRoles().get(0).getName());
   }
 
   @Override
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
     Page<User> usersPage = userRepository.findAllByRoleName(roleName, pageable);
     return usersPage.map(
         users -> new UserDataVO(
-            users.getEmail(), users.getFirstName(), users.getLastName(), users.getEnabled()));
+            users.getEmail(), users.getFirstName(), users.getLastName(), users.getEnabled(), users.getRoles().get(0).getName()));
   }
 
   @Override
@@ -81,6 +81,7 @@ public class UserServiceImpl implements UserService {
         updatedUser.getEmail(),
         updatedUser.getFirstName(),
         updatedUser.getLastName(),
-        updatedUser.getEnabled());
+        updatedUser.getEnabled(),
+        updatedUser.getRoles().get(0).getName());
   }
 }

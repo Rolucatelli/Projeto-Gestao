@@ -95,6 +95,8 @@ label {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }
 
 .add-button {
@@ -221,7 +223,6 @@ label {
     }
 
     .add-button, .cancel-button {
-        width: 100%;
         font-size: 1.2em;
     }
 }

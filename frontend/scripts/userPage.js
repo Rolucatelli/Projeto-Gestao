@@ -10,43 +10,6 @@ function closeForm() {
     addUserForm.style.display = "none";
 }
 
-async function addUser(event) {
-    event.preventDefault();
-
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const role = document.getElementById("role").value;
-    const status = document.getElementById("status").checked;
-
-    const user = {
-        firstName,
-        lastName,
-        role,
-        status,
-    };
-
-    try {
-        const response = await fetch(`${baseUrl}/create`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        });
-
-        if (!response.ok) {
-            throw new Error(`Erro ao adicionar usuário: ${response.status}`);
-        }
-
-        alert("Usuário adicionado com sucesso!");
-        closeForm();
-        fetchUsers(); 
-    } catch (error) {
-        console.error("Erro ao adicionar usuário:", error);
-        alert("Erro ao adicionar usuário. Verifique o console para mais detalhes.");
-    }
-}
-
 async function fetchUsers() {
     try {
         const response = await fetch(`${baseUrl}/all`);
@@ -55,6 +18,7 @@ async function fetchUsers() {
         }
         const data = await response.json();
         populateTable(data.content); 
+        console.log(data);
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
     }
@@ -66,11 +30,11 @@ function populateTable(users) {
     users.forEach(user => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${user.id}</td>
+            <td>${user.email}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
-            <td>${user.role}</td>
-            <td>${user.status ? "Ativo" : "Inativo"}</td>
+            <td>${user.userRole}</td>
+            <td>${user.enabled ? "Active" : "Inactive"}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -80,12 +44,12 @@ function searchUser() {
     const searchInput = document.getElementById("searchInput").value.trim();
 
  
-    if (!searchInput || isNaN(searchInput)) {
-        alert("Digite um ID válido (somente números) para buscar.");
+    if (!searchInput) {
+        fetchUsers();
         return;
     }
 
-    fetch(`${baseUrl}/find/${searchInput}`)
+    fetch(`${baseUrl}/${searchInput}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Usuário não encontrado. Status: ${response.status}`);
@@ -101,3 +65,4 @@ function searchUser() {
         });
 }
 
+fetchUsers();
