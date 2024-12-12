@@ -17,8 +17,8 @@ async function fetchUsers() {
             throw new Error(`Erro ao buscar usuários: ${response.status}`);
         }
         const data = await response.json();
-        populateTable(data.content); 
         console.log(data);
+        populateTable(data.content); 
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
     }
@@ -43,15 +43,34 @@ function populateTable(users) {
     });
 }
 
+// function bytesToBase64(bytes) {
+//     const binary = atob(bytes);
+//     const binaryLength = binary.length;
+//     const byteArray = new Uint8Array(binaryLength);
+//     for (let i = 0; i < binaryLength; i++) {
+//         byteArray[i] = binary.charCodeAt(i);
+//     }
+//     return btoa(String.fromCharCode.apply(null, byteArray));
+// }
+
 function bytesToBase64(bytes) {
-    const binary = atob(bytes);
-    const binaryLength = binary.length;
-    const byteArray = new Uint8Array(binaryLength);
-    for (let i = 0; i < binaryLength; i++) {
-        byteArray[i] = binary.charCodeAt(i);
+    // Certifique-se de que bytes é um Uint8Array
+    const byteArray = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+
+    const chunkSize = 8192; // Tamanho do pedaço (8 KB é seguro)
+    const binaryChunks = [];
+
+    // Converte os bytes em pequenos pedaços de strings binárias
+    for (let i = 0; i < byteArray.length; i += chunkSize) {
+        const chunk = byteArray.subarray(i, i + chunkSize);
+        binaryChunks.push(String.fromCharCode.apply(null, chunk));
     }
-    return btoa(String.fromCharCode.apply(null, byteArray));
+
+    // Junta os pedaços e converte para base64
+    const binary = binaryChunks.join('');
+    return btoa(binary);
 }
+
 
 function searchUser() {
     const searchInput = document.getElementById("searchInput").value.trim();
