@@ -61,6 +61,9 @@ public class Product {
   @OneToMany(mappedBy = "product")
   private List<Image> images = new ArrayList<>();
 
+  @OneToMany(mappedBy = "product")
+  private List<Details> details = new ArrayList<>();
+
   public Product(
           String name,
           String shortDescription,

@@ -68,6 +68,7 @@ function renderImages(images) {
 function renderDetails(details) {
 	return details
 		.map((detail) => {
+			console.log("Detail: ", detail);
 			return `
 			<div class="detail">
 				<h3>Detail ${details.indexOf(detail) + 1}:</h3>
@@ -103,7 +104,7 @@ getProducts().then((data) => {
 	const productWeight = document.getElementById("product-weight");
 	const productActive = document.getElementById("product-active");
 	const productStockAmount = document.getElementById("product-stock-amount");
-	const detailsList = document.getElementsByClassName(".details-section")[0];
+	const detailsList = document.getElementsByClassName("details-section")[0];
 	productName.innerHTML = data.name;
 	productShortDescription.innerHTML = data.shortDescription;
 	productFullDescription.innerHTML = data.fullDescription;
@@ -118,6 +119,7 @@ getProducts().then((data) => {
 	productWeight.innerHTML = data.dimensions.weight;
 	productActive.checked = data.isActive;
 	productStockAmount.innerHTML = data.stockAmount;
+	console.log("Details: ", data.details);
 	detailsList.innerHTML = renderDetails(data.details);
 
 	productImages.innerHTML = renderImages(data.images);
