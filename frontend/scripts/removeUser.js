@@ -88,6 +88,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			closeModal();
 		}
 	});
-
-    fetchUsers();
 });
