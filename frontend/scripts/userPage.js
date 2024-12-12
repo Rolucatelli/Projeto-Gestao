@@ -54,7 +54,6 @@ async function fetchUsers() {
             throw new Error(`Erro ao buscar usuários: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
         populateTable(data.content); 
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
@@ -70,7 +69,7 @@ function populateTable(users) {
             <td>${user.email}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
-            <td>${user.role}</td>
+            <td>${user.userRole}</td>
             <td>${user.status ? "Ativo" : "Inativo"}</td>
         `;
         tableBody.appendChild(row);
