@@ -29,8 +29,11 @@ function populateTable(users) {
     tableBody.innerHTML = ""; 
     users.forEach(user => {
         const row = document.createElement("tr");
+        const photoBase64 = bytesToBase64(user.photo.photo);
+        const photoUrl = `data:image/jpeg;base64,${photoBase64}`;
         row.innerHTML = `
             <td>${user.email}</td>
+            <td><img src="${photoUrl}" alt="${user.photo.name}" width="50" height="50"></td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
             <td>${user.userRole}</td>
@@ -38,6 +41,16 @@ function populateTable(users) {
         `;
         tableBody.appendChild(row);
     });
+}
+
+function bytesToBase64(bytes) {
+    const binary = atob(bytes);
+    const binaryLength = binary.length;
+    const byteArray = new Uint8Array(binaryLength);
+    for (let i = 0; i < binaryLength; i++) {
+        byteArray[i] = binary.charCodeAt(i);
+    }
+    return btoa(String.fromCharCode.apply(null, byteArray));
 }
 
 function searchUser() {

@@ -5,6 +5,7 @@ import com.example.bluevelvetmusicstore.model.entities.ImageUser;
 import com.example.bluevelvetmusicstore.model.entities.User;
 import com.example.bluevelvetmusicstore.model.entities.Role;
 import com.example.bluevelvetmusicstore.model.vo.CreateUserVO;
+import com.example.bluevelvetmusicstore.model.vo.PhotoVO;
 import com.example.bluevelvetmusicstore.model.vo.RoleVO;
 import com.example.bluevelvetmusicstore.model.vo.UserDataVO;
 import com.example.bluevelvetmusicstore.repository.ImageUserRepository;
@@ -65,7 +66,7 @@ public class UserServiceImpl implements UserService {
   public UserDataVO findUserByEmail(String email) {
     User user = userRepository.findById(email).orElseThrow(() -> new RuntimeException("User not found"));
     return new UserDataVO(
-        user.getEmail(), user.getFirstName(), user.getLastName(), user.getEnabled(), user.getRoles().get(0).getName());
+        user.getEmail(), user.getFirstName(), user.getLastName(), user.getEnabled(), user.getRoles().get(0).getName(), new PhotoVO(imageUserRepository.findByUser(user).orElse(new ImageUser()).getPhoto(), imageUserRepository.findByUser(user).orElse(new ImageUser()).getName()));
   }
 
   @Override
@@ -74,7 +75,7 @@ public class UserServiceImpl implements UserService {
     Page<User> usersPage = userRepository.findAllByRoleName(roleName, pageable);
     return usersPage.map(
         users -> new UserDataVO(
-            users.getEmail(), users.getFirstName(), users.getLastName(), users.getEnabled(), users.getRoles().get(0).getName()));
+            users.getEmail(), users.getFirstName(), users.getLastName(), users.getEnabled(), users.getRoles().get(0).getName(), new PhotoVO(imageUserRepository.findByUser(users).orElse(new ImageUser()).getPhoto(), imageUserRepository.findByUser(users).orElse(new ImageUser()).getName())));
   }
 
   @Override
@@ -120,6 +121,7 @@ public class UserServiceImpl implements UserService {
               updatedUser.getFirstName(),
               updatedUser.getLastName(),
               updatedUser.getEnabled(),
-              updatedUser.getRoles().get(0).getName());
+              updatedUser.getRoles().get(0).getName(),
+              new PhotoVO(imageUserRepository.findByUser(updatedUser).orElse(new ImageUser()).getPhoto(), imageUserRepository.findByUser(updatedUser).orElse(new ImageUser()).getName()));
   }
 }
