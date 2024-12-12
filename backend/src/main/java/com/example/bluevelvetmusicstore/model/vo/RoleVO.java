@@ -1,12 +1,13 @@
 package com.example.bluevelvetmusicstore.model.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
+@AllArgsConstructor
 @Getter
-@Data
+@Setter
 public class RoleVO {
     private Long id;
 }

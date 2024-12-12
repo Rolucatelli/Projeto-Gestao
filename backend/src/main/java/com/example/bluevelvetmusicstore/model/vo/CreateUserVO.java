@@ -3,6 +3,9 @@ package com.example.bluevelvetmusicstore.model.vo;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.List;
 
 public record CreateUserVO(

@@ -39,6 +39,17 @@
                             <input type="password" id="password" class="styled-input" maxlength="64"
                                 placeholder="Enter your password" required>
                         </div>
+                        <div class="field-container">
+                            <label for="role">Role:</label>
+                            <!-- <input type="role" id="role" class="styled-input" maxlength="64" placeholder="Enter your role" required> -->
+                             <select id="role" class="styled-input" required>
+                                <option value="1">Administrator</option>
+                                <option value="2">Sales Manager</option>
+                                <option value="3">Editor</option>
+                                <option value="4">Shipping Manager</option>
+                                <option value="5">Assistant</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -46,8 +57,8 @@
                     <div class="section-container">
                         <h3>Photo:</h3>
                         <div class="url-container">
-                            <input type="text" id="imageUrl" class="styled-input"
-                                placeholder="Enter image URL (not required)">
+                            <input type="file" id="imageFile" class="styled-input"
+                                placeholder="Enter image file (not required)">
                             <button type="button" class="save-button" onclick="saveImage()">Add Image</button>
                         </div>
                         <div class="carousel-container">
