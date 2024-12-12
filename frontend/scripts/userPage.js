@@ -54,6 +54,7 @@ async function fetchUsers() {
             throw new Error(`Erro ao buscar usuários: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data);
         populateTable(data.content); 
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
@@ -66,7 +67,7 @@ function populateTable(users) {
     users.forEach(user => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${user.id}</td>
+            <td>${user.email}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
             <td>${user.role}</td>
@@ -101,3 +102,4 @@ function searchUser() {
         });
 }
 
+fetchUsers();
