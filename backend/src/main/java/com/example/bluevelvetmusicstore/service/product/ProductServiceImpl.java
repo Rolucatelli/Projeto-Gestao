@@ -95,6 +95,7 @@ public class ProductServiceImpl implements ProductService {
       Details.builder()
               .name(detail.name())
               .value(detail.value())
+              .product(savedProduct)
               .build()
     ).toList();
     detailRepository.saveAll(details);
