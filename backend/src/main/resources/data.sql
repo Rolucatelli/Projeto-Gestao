@@ -85,12 +85,19 @@ INSERT INTO roles (name, description) VALUES ('Shipping Manager', 'Views product
 INSERT INTO roles (name, description) VALUES ('Assistant', 'Manages questions and reviews');
 
 -- Insert data into 'users' table
-INSERT INTO users (email, first_name, last_name, password, photo, enabled) VALUES
-('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', NULL, TRUE),
-('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', NULL, TRUE),
-('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', NULL, FALSE),
-('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', NULL, TRUE),
-('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', NULL, FALSE);
+INSERT INTO users (email, first_name, last_name, password, enabled) VALUES
+('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', TRUE),
+('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', TRUE),
+('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', FALSE),
+('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', TRUE),
+('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', FALSE);
+
+--Insert images of Users
+INSERT INTO imageuser (photo, name, is_principal, user_id) VALUES
+(X'89504E470D0A1A0A0000000D49484452', 'alice-profile-pic.png', TRUE, 'alice.smith@example.com'),
+(X'89504E470D0A1A0A0000000D49484452', 'bob-profile-pic.png', TRUE, 'bob.jones@example.com'),
+(X'89504E470D0A1A0A0000000D49484452', 'diana-profile-pic.png', TRUE, 'diana.prince@example.com');
+
 
 -- Assign roles to Alice Smith
 INSERT INTO user_roles (user_id, role_id) VALUES
