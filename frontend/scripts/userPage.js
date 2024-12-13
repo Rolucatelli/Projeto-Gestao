@@ -53,25 +53,6 @@ function bytesToBase64(bytes) {
     return btoa(String.fromCharCode.apply(null, byteArray));
 }
 
-// function bytesToBase64(bytes) {
-//     // Certifique-se de que bytes é um Uint8Array
-//     const byteArray = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
-
-//     const chunkSize = 8192; // Tamanho do pedaço (8 KB é seguro)
-//     const binaryChunks = [];
-
-//     // Converte os bytes em pequenos pedaços de strings binárias
-//     for (let i = 0; i < byteArray.length; i += chunkSize) {
-//         const chunk = byteArray.subarray(i, i + chunkSize);
-//         binaryChunks.push(String.fromCharCode.apply(null, chunk));
-//     }
-
-//     // Junta os pedaços e converte para base64
-//     const binary = binaryChunks.join('');
-//     return btoa(binary);
-// }
-
-
 function searchUser() {
     const searchInput = document.getElementById("searchInput").value.trim();
 

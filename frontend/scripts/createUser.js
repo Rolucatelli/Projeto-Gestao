@@ -82,9 +82,9 @@ function cleanForm(message) {
     }
 }
 
-let image = null;
 let photo = null;
 
+let image = null;
 function updateImage() {
     const carousel = document.getElementById('imageCarousel');
     carousel.innerHTML = '';
