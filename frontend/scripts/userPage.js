@@ -43,33 +43,33 @@ function populateTable(users) {
     });
 }
 
-// function bytesToBase64(bytes) {
-//     const binary = atob(bytes);
-//     const binaryLength = binary.length;
-//     const byteArray = new Uint8Array(binaryLength);
-//     for (let i = 0; i < binaryLength; i++) {
-//         byteArray[i] = binary.charCodeAt(i);
-//     }
-//     return btoa(String.fromCharCode.apply(null, byteArray));
-// }
-
 function bytesToBase64(bytes) {
-    // Certifique-se de que bytes é um Uint8Array
-    const byteArray = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
-
-    const chunkSize = 8192; // Tamanho do pedaço (8 KB é seguro)
-    const binaryChunks = [];
-
-    // Converte os bytes em pequenos pedaços de strings binárias
-    for (let i = 0; i < byteArray.length; i += chunkSize) {
-        const chunk = byteArray.subarray(i, i + chunkSize);
-        binaryChunks.push(String.fromCharCode.apply(null, chunk));
+    const binary = atob(bytes);
+    const binaryLength = binary.length;
+    const byteArray = new Uint8Array(binaryLength);
+    for (let i = 0; i < binaryLength; i++) {
+        byteArray[i] = binary.charCodeAt(i);
     }
-
-    // Junta os pedaços e converte para base64
-    const binary = binaryChunks.join('');
-    return btoa(binary);
+    return btoa(String.fromCharCode.apply(null, byteArray));
 }
+
+// function bytesToBase64(bytes) {
+//     // Certifique-se de que bytes é um Uint8Array
+//     const byteArray = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+
+//     const chunkSize = 8192; // Tamanho do pedaço (8 KB é seguro)
+//     const binaryChunks = [];
+
+//     // Converte os bytes em pequenos pedaços de strings binárias
+//     for (let i = 0; i < byteArray.length; i += chunkSize) {
+//         const chunk = byteArray.subarray(i, i + chunkSize);
+//         binaryChunks.push(String.fromCharCode.apply(null, chunk));
+//     }
+
+//     // Junta os pedaços e converte para base64
+//     const binary = binaryChunks.join('');
+//     return btoa(binary);
+// }
 
 
 function searchUser() {
