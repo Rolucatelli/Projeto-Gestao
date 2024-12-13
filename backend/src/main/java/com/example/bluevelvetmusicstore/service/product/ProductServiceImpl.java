@@ -1,15 +1,12 @@
 package com.example.bluevelvetmusicstore.service.product;
 
 import com.example.bluevelvetmusicstore.mappers.ProductMapper;
-import com.example.bluevelvetmusicstore.model.entities.Category;
-import com.example.bluevelvetmusicstore.model.entities.Dimensions;
-import com.example.bluevelvetmusicstore.model.entities.Image;
-import com.example.bluevelvetmusicstore.model.entities.Product;
+import com.example.bluevelvetmusicstore.model.entities.*;
 import com.example.bluevelvetmusicstore.model.vo.*;
-import com.example.bluevelvetmusicstore.repository.CategoryRepository;
-import com.example.bluevelvetmusicstore.repository.ImageRepository;
-import com.example.bluevelvetmusicstore.repository.ProductRepository;
+import com.example.bluevelvetmusicstore.repository.*;
+
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.data.domain.Page;
@@ -25,6 +22,7 @@ public class ProductServiceImpl implements ProductService {
   private final ProductMapper productMapper;
   private final CategoryRepository categoryRepository;
   private final ImageRepository imageRepository;
+  private final DetailRepository detailRepository;
 
   @Override
   public Page<ProductDashboardVO> retrieveAllProducts(String search, Pageable pageable) {
@@ -43,6 +41,8 @@ public class ProductServiceImpl implements ProductService {
   public void deleteProduct(Long id) {
     Product product =
         productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+    List<Details> productDetails = product.getDetails();
+    detailRepository.deleteAllInBatch(productDetails);
     List<Image> productImages = product.getImages();
     imageRepository.deleteAllInBatch(productImages);
     productRepository.deleteById(id);
@@ -51,9 +51,11 @@ public class ProductServiceImpl implements ProductService {
   @Override
   public ProductDetailsVO retrieveProductById(Long id) {
     Product p = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Este produto não existe!"));
+    List<Details> productDetails = p.getDetails();
+    List<DetailsVO> detailsVO = productDetails.stream().map(detail -> new DetailsVO(detail.getId(), detail.getName(), detail.getValue())).toList();
     List<Image> productImages = p.getImages();
     List<ImageDetailsVO> productImagesVO = productImages.stream().map(image -> new ImageDetailsVO(image.getId(), image.getUrl(), image.getIsPrincipal())).toList();
-    return new ProductDetailsVO(p.getId(), p.getName(), p.getShortDescription(), p.getFullDescription(), p.getCategory().getName(), p.getBrand(), p.getPrice(), p.getDiscount(), p.getIsActive(), p.getStockAmount(), p.getCost(), p.getDimensions(), productImagesVO);
+    return new ProductDetailsVO(p.getId(), p.getName(), p.getShortDescription(), p.getFullDescription(), p.getCategory().getName(), p.getBrand(), p.getPrice(), p.getDiscount(), p.getIsActive(), p.getStockAmount(), p.getCost(), p.getDimensions(), productImagesVO, detailsVO);
   }
 
   @Override
@@ -88,6 +90,15 @@ public class ProductServiceImpl implements ProductService {
                                             .build())
                     .toList();
     imageRepository.saveAll(images);
+
+    List<Details> details = data.details().stream().map(detail ->
+      Details.builder()
+              .name(detail.name())
+              .value(detail.value())
+              .product(savedProduct)
+              .build()
+    ).toList();
+    detailRepository.saveAll(details);
     return new DetailProductVO(savedProduct.getId(), savedProduct.getName());
   }
 }

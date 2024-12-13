@@ -1,3 +1,4 @@
+
 -- Insert data into the categories table for music-related products
 INSERT INTO categories (name, description) VALUES
 ('Music Albums', 'Physical or digital albums containing a collection of songs'),
@@ -76,6 +77,57 @@ VALUES
     ('https://upload.wikimedia.org/wikipedia/commons/0/0c/Shure_mikrofon_55S.jpg', 'Main image for Product 14', true, 14),
 -- Principal image for product with ID 15
     ('https://m.media-amazon.com/images/I/71oYw-nKBZL._AC_UF1000,1000_QL80_.jpg', 'Main image for Product 15', true, 15);
+
+-- Insert data into the 'details' table
+INSERT INTO details (name, dvalue, product_id)
+VALUES
+    -- Detalhes para o produto 1
+    ('Detail1_Product1', 'Value1', 1),
+    ('Detail2_Product1', 'Value2', 1),
+    -- Detalhes para o produto 2
+    ('Detail1_Product2', 'Value1', 2),
+    ('Detail2_Product2', 'Value2', 2),
+    -- Detalhes para o produto 3
+    ('Detail1_Product3', 'Value1', 3),
+    ('Detail2_Product3', 'Value2', 3),
+    -- Detalhes para o produto 4
+    ('Detail1_Product4', 'Value1', 4),
+    ('Detail2_Product4', 'Value2', 4),
+    -- Detalhes para o produto 5
+    ('Detail1_Product5', 'Value1', 5),
+    ('Detail2_Product5', 'Value2', 5),
+    -- Detalhes para o produto 6
+    ('Detail1_Product6', 'Value1', 6),
+    ('Detail2_Product6', 'Value2', 6),
+    -- Detalhes para o produto 7
+    ('Detail1_Product7', 'Value1', 7),
+    ('Detail2_Product7', 'Value2', 7),
+    -- Detalhes para o produto 8
+    ('Detail1_Product8', 'Value1', 8),
+    ('Detail2_Product8', 'Value2', 8),
+    -- Detalhes para o produto 9
+    ('Detail1_Product9', 'Value1', 9),
+    ('Detail2_Product9', 'Value2', 9),
+    -- Detalhes para o produto 10
+    ('Detail1_Product10', 'Value1', 10),
+    ('Detail2_Product10', 'Value2', 10),
+    -- Detalhes para o produto 11
+    ('Detail1_Product11', 'Value1', 11),
+    ('Detail2_Product11', 'Value2', 11),
+    -- Detalhes para o produto 12
+    ('Detail1_Product12', 'Value1', 12),
+    ('Detail2_Product12', 'Value2', 12),
+    -- Detalhes para o produto 13
+    ('Detail1_Product13', 'Value1', 13),
+    ('Detail2_Product13', 'Value2', 13),
+    -- Detalhes para o produto 14
+    ('Detail1_Product14', 'Value1', 14),
+    ('Detail2_Product14', 'Value2', 14),
+    -- Detalhes para o produto 15
+    ('Detail1_Product15', 'Value1', 15),
+    ('Detail2_Product15', 'Value2', 15);
+
+
 
 -- Insert data into the 'roles' table
 INSERT INTO roles (name, description) VALUES ('Administrator', 'Manages everything');

@@ -1,5 +1,6 @@
 package com.example.bluevelvetmusicstore.model.vo;
 
+import com.example.bluevelvetmusicstore.model.entities.Details;
 import com.example.bluevelvetmusicstore.model.entities.Dimensions;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class ProductDetailsVO {
     private BigDecimal cost;
     private Dimensions dimensions;
     private List<ImageDetailsVO> images;
+    private List<DetailsVO> details;
 
     public ProductDetailsVO(Long id, String name) {
     }

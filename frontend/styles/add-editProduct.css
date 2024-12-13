@@ -266,6 +266,37 @@
     background-color: #660016;
 }
 
+#addDetailBtn{
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #4B4B4B;
+}
+
+.remove-detail-btn{
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #800020;
+}
+
+.detail{
+    border: 2px solid #d0d0d0;
+    box-shadow: 0 4px 8px #d0d0d0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
 @media (max-width: 768px) {
     .form-columns {
         flex-direction: column;
