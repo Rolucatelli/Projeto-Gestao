@@ -95,6 +95,8 @@ label {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
 .update-button {
@@ -222,7 +224,6 @@ label {
     }
 
     .update-button, .cancel-button {
-        width: 100%;
         font-size: 1.2em;
     }
 }

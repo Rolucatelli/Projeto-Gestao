@@ -1,6 +1,8 @@
 package com.example.bluevelvetmusicstore.model.entities;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,10 +31,7 @@ public class User {
 
   @Column(nullable = false, length = 64)
   private String password;
-
-  @Column(nullable = true, length = 80)
-  private String photo;
-
+  
   @Column(nullable = false)
   private Boolean enabled;
 
@@ -46,4 +45,7 @@ public class User {
   public List<String> getRoleNames() {
     return roles.stream().map(Role::getName).toList();
   }
+
+  @OneToMany(mappedBy = "user")
+  private List<ImageUser> imagesUser = new ArrayList<>();
 }
