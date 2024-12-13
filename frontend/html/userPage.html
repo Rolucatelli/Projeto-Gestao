@@ -9,41 +9,20 @@
 </head>
 <body>
     <header>
-        <h1>Gestão de Usuários</h1>
+        <h1>User Management</h1>
     </header>
 
-    <button class="add-user-btn" onclick="showAddUserForm()">Adicionar Novo Usuário</button>
-
-    <div id="addUserForm" class="add-user-form" style="display: none;">
-        <h2>Adicionar Novo Usuário</h2>
-        <form id="userForm" onsubmit="addUser(event)">
-            <label for="firstName">Nome:</label>
-            <input type="text" id="firstName" name="firstName" required>
-
-            <label for="lastName">Sobrenome:</label>
-            <input type="text" id="lastName" name="lastName" required>
-
-            <label for="role">Role:</label>
-            <select id="role" name="role" required>
-                <option value="Admin">Admin</option>
-                <option value="Editor">Editor</option>
-                <option value="Usuário">Usuário</option>
-            </select>
-
-            <label for="status">Status:</label>
-            <input type="checkbox" id="status" name="status" checked>
-
-            <button type="submit">Adicionar</button>
-            <button type="button" onclick="closeForm()">Cancelar</button>
-        </form>
-    </div>
+    <a class="add-user-btn" href="./createUser.html">Add New User</a>
+    <a class="add-user-btn" href="./updateUser.html">Update User</a>
+    <a class="add-user-btn" href="./removeUser.html">Remove User</a>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Role</th>
                 <th>Status</th>
             </tr>
@@ -53,8 +32,8 @@
     </table>
 
     <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Pesquisar por ID..." onkeyup="searchUser()">
-        <button onclick="searchUser()">Pesquisar</button>
+        <input type="text" id="searchInput" placeholder="Search by Email...">
+        <button onclick="searchUser()">Search</button>
     </div>
 
     <script src="../scripts/userPage.js"></script>

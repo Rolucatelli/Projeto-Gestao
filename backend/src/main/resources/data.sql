@@ -1,3 +1,4 @@
+
 -- Insert data into the categories table for music-related products
 INSERT INTO categories (name, description) VALUES
 ('Music Albums', 'Physical or digital albums containing a collection of songs'),
@@ -77,6 +78,57 @@ VALUES
 -- Principal image for product with ID 15
     ('https://m.media-amazon.com/images/I/71oYw-nKBZL._AC_UF1000,1000_QL80_.jpg', 'Main image for Product 15', true, 15);
 
+-- Insert data into the 'details' table
+INSERT INTO details (name, dvalue, product_id)
+VALUES
+    -- Detalhes para o produto 1
+    ('Detail1_Product1', 'Value1', 1),
+    ('Detail2_Product1', 'Value2', 1),
+    -- Detalhes para o produto 2
+    ('Detail1_Product2', 'Value1', 2),
+    ('Detail2_Product2', 'Value2', 2),
+    -- Detalhes para o produto 3
+    ('Detail1_Product3', 'Value1', 3),
+    ('Detail2_Product3', 'Value2', 3),
+    -- Detalhes para o produto 4
+    ('Detail1_Product4', 'Value1', 4),
+    ('Detail2_Product4', 'Value2', 4),
+    -- Detalhes para o produto 5
+    ('Detail1_Product5', 'Value1', 5),
+    ('Detail2_Product5', 'Value2', 5),
+    -- Detalhes para o produto 6
+    ('Detail1_Product6', 'Value1', 6),
+    ('Detail2_Product6', 'Value2', 6),
+    -- Detalhes para o produto 7
+    ('Detail1_Product7', 'Value1', 7),
+    ('Detail2_Product7', 'Value2', 7),
+    -- Detalhes para o produto 8
+    ('Detail1_Product8', 'Value1', 8),
+    ('Detail2_Product8', 'Value2', 8),
+    -- Detalhes para o produto 9
+    ('Detail1_Product9', 'Value1', 9),
+    ('Detail2_Product9', 'Value2', 9),
+    -- Detalhes para o produto 10
+    ('Detail1_Product10', 'Value1', 10),
+    ('Detail2_Product10', 'Value2', 10),
+    -- Detalhes para o produto 11
+    ('Detail1_Product11', 'Value1', 11),
+    ('Detail2_Product11', 'Value2', 11),
+    -- Detalhes para o produto 12
+    ('Detail1_Product12', 'Value1', 12),
+    ('Detail2_Product12', 'Value2', 12),
+    -- Detalhes para o produto 13
+    ('Detail1_Product13', 'Value1', 13),
+    ('Detail2_Product13', 'Value2', 13),
+    -- Detalhes para o produto 14
+    ('Detail1_Product14', 'Value1', 14),
+    ('Detail2_Product14', 'Value2', 14),
+    -- Detalhes para o produto 15
+    ('Detail1_Product15', 'Value1', 15),
+    ('Detail2_Product15', 'Value2', 15);
+
+
+
 -- Insert data into the 'roles' table
 INSERT INTO roles (name, description) VALUES ('Administrator', 'Manages everything');
 INSERT INTO roles (name, description) VALUES ('Sales Manager', 'Manages product price, customers, shipping, orders and sales report');
@@ -85,12 +137,19 @@ INSERT INTO roles (name, description) VALUES ('Shipping Manager', 'Views product
 INSERT INTO roles (name, description) VALUES ('Assistant', 'Manages questions and reviews');
 
 -- Insert data into 'users' table
-INSERT INTO users (email, first_name, last_name, password, photo, enabled) VALUES
-('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', NULL, TRUE),
-('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', NULL, TRUE),
-('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', NULL, FALSE),
-('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', NULL, TRUE),
-('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', NULL, FALSE);
+INSERT INTO users (email, first_name, last_name, password, enabled) VALUES
+('alice.smith@example.com', 'Alice', 'Smith', 'aL1c3$S3cP@ss', TRUE),
+('bob.jones@example.com', 'Bob', 'Jones', 'b0b$P@ss123!', TRUE),
+('charlie.brown@example.com', 'Charlie', 'Brown', 'Ch@rl13Br0wnP@ss!', FALSE),
+('diana.prince@example.com', 'Diana', 'Prince', 'D1@n@W0nd3rP@ss', TRUE),
+('eve.adams@example.com', 'Eve', 'Adams', 'Ev3$Ad@msS3c', FALSE);
+
+--Insert images of Users
+INSERT INTO imageuser (photo, name, is_principal, user_id) VALUES
+(X'89504E470D0A1A0A0000000D49484452', 'alice-profile-pic.png', TRUE, 'alice.smith@example.com'),
+(X'89504E470D0A1A0A0000000D49484452', 'bob-profile-pic.png', TRUE, 'bob.jones@example.com'),
+(X'89504E470D0A1A0A0000000D49484452', 'diana-profile-pic.png', TRUE, 'diana.prince@example.com');
+
 
 -- Assign roles to Alice Smith
 INSERT INTO user_roles (user_id, role_id) VALUES

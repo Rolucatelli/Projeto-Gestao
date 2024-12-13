@@ -21,7 +21,7 @@
                         <div class="field-container">
                             <label for="email">Email:</label>
                             <input type="email" id="email" class="styled-input" maxlength="128"
-                                placeholder="Enter the user's email" readonly>
+                                placeholder="Enter the user's email">
                         </div>
                         <div class="field-container">
                             <label for="firstName">First Name:</label>
@@ -38,6 +38,17 @@
                             <input type="password" id="password" class="styled-input" maxlength="64"
                                 placeholder="Enter a new password (leave blank to keep unchanged)">
                         </div>
+                        <div class="field-container">
+                            <label for="role">Role:</label>
+                            <!-- <input type="role" id="role" class="styled-input" maxlength="64" placeholder="Enter your role" required> -->
+                             <select id="role" class="styled-input" required>
+                                <option value="1">Administrator</option>
+                                <option value="2">Sales Manager</option>
+                                <option value="3">Editor</option>
+                                <option value="4">Shipping Manager</option>
+                                <option value="5">Assistant</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -45,8 +56,8 @@
                     <div class="section-container">
                         <h3>Photo:</h3>
                         <div class="url-container">
-                            <input type="text" id="imageUrl" class="styled-input"
-                                placeholder="Enter image URL (optional)">
+                            <input type="file" id="imageFile" class="styled-input"
+                                placeholder="Enter image file (not required)">
                             <button type="button" class="save-button" onclick="saveImage()">Add Image</button>
                         </div>
                         <div class="carousel-container">
@@ -57,12 +68,12 @@
 
             </div>
             <div class="button-group">
-                <button type="button" class="cancel-button" id="cancelButton">Cancel</button>
-                <button type="submit" class="update-button">Update</button>
+                <a href="./userPage.html" class="cancel-button" id="cancelButton">Cancel</a>
+                <button id="updateButton" type="submit" class="update-button">Update</button>
             </div>
         </form>
     </div>
-    <script src="../scripts/updateUser.js"></script>
+    <script src="../scripts/updateUser.js" defer></script>
 </body>
 
 </html>

@@ -10,43 +10,6 @@ function closeForm() {
     addUserForm.style.display = "none";
 }
 
-async function addUser(event) {
-    event.preventDefault();
-
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const role = document.getElementById("role").value;
-    const status = document.getElementById("status").checked;
-
-    const user = {
-        firstName,
-        lastName,
-        role,
-        status,
-    };
-
-    try {
-        const response = await fetch(`${baseUrl}/create`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        });
-
-        if (!response.ok) {
-            throw new Error(`Erro ao adicionar usuário: ${response.status}`);
-        }
-
-        alert("Usuário adicionado com sucesso!");
-        closeForm();
-        fetchUsers(); 
-    } catch (error) {
-        console.error("Erro ao adicionar usuário:", error);
-        alert("Erro ao adicionar usuário. Verifique o console para mais detalhes.");
-    }
-}
-
 async function fetchUsers() {
     try {
         const response = await fetch(`${baseUrl}/all`);
@@ -54,6 +17,7 @@ async function fetchUsers() {
             throw new Error(`Erro ao buscar usuários: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data);
         populateTable(data.content); 
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
@@ -65,27 +29,40 @@ function populateTable(users) {
     tableBody.innerHTML = ""; 
     users.forEach(user => {
         const row = document.createElement("tr");
+        const photoBase64 = bytesToBase64(user.photo.photo);
+        const photoUrl = `data:image/jpeg;base64,${photoBase64}`;
         row.innerHTML = `
-            <td>${user.id}</td>
+            <td>${user.email}</td>
+            <td><img src="${photoUrl}" alt="${user.photo.name}" width="50" height="50"></td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
-            <td>${user.role}</td>
-            <td>${user.status ? "Ativo" : "Inativo"}</td>
+            <td>${user.userRole}</td>
+            <td>${user.enabled ? "Active" : "Inactive"}</td>
         `;
         tableBody.appendChild(row);
     });
+}
+
+function bytesToBase64(bytes) {
+    const binary = atob(bytes);
+    const binaryLength = binary.length;
+    const byteArray = new Uint8Array(binaryLength);
+    for (let i = 0; i < binaryLength; i++) {
+        byteArray[i] = binary.charCodeAt(i);
+    }
+    return btoa(String.fromCharCode.apply(null, byteArray));
 }
 
 function searchUser() {
     const searchInput = document.getElementById("searchInput").value.trim();
 
  
-    if (!searchInput || isNaN(searchInput)) {
-        alert("Digite um ID válido (somente números) para buscar.");
+    if (!searchInput) {
+        fetchUsers();
         return;
     }
 
-    fetch(`${baseUrl}/find/${searchInput}`)
+    fetch(`${baseUrl}/${searchInput}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Usuário não encontrado. Status: ${response.status}`);
@@ -101,3 +78,4 @@ function searchUser() {
         });
 }
 
+fetchUsers();

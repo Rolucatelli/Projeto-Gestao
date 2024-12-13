@@ -18,4 +18,5 @@ public record CreateProductVO(
         Integer discount,
         Boolean active,
         int stock,
-        List<CreateImagesVO> images) {}
+        List<CreateImagesVO> images,
+        List<CreateDetailsVO> details) {}
